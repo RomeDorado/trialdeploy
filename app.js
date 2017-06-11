@@ -722,6 +722,10 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
+		case "FACEBOOK_WELCOME":
+		sendToApiAi(senderID, "Get Started");
+		break;
+		
 		case "feed_back": 
 		sendToApiAi(senderID, "Feedback");
 		//sendTextMessage(senderID, "responseText");//gawing message try mo
