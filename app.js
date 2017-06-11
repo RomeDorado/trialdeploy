@@ -723,7 +723,7 @@ function receivedPostback(event) {
 	switch (payload) {
 		default:
 			//unindentified payload
-			sendTextMessage(senderID, "${payload}");
+			sendTextMessage(senderID, `${payload}`);
 			break;
 
 	}
