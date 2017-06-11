@@ -183,6 +183,7 @@ function handleEcho(messageId, appId, metadata) {
 }
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
+	var senderID = event.sender.id;
 	switch (action) {
 		case "says-hi":
 
