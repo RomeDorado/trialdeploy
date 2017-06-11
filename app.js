@@ -723,9 +723,8 @@ function receivedPostback(event) {
 
 	switch (payload) {
 		case "FACEBOOK_WELCOME":
-		sendToApiAi(senderID, "Get Started");
-		break;
-		
+		sendToApiAi(senderID, payload);
+		break;		
 		case "feed_back": 
 		sendToApiAi(senderID, "Feedback");
 		//sendTextMessage(senderID, "responseText");//gawing message try mo
