@@ -183,9 +183,8 @@ function handleEcho(messageId, appId, metadata) {
 }
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
-	switch (action) {
-		case "says-hi":
-		sendTextMessage(sender, "HI BACK");
+	switch (action) {		
+		
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
@@ -723,6 +722,10 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
+		case "feed_back": 
+		sendTextMessage(senderID, responseText);
+		break;
+
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, `${payload}`);
