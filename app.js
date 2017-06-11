@@ -186,7 +186,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	var senderID = event.sender.id;
 	switch (action) {
 		case "feedback-action":
-				///////////////////////////////
+		console.log("it worked");
 		break;
 
 		default:
@@ -198,7 +198,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 function handleMessage(message, sender) {
 	switch (message.type) {
 		case 0: //text
-			sendTextMessage(sender, message.speech, action);
+			sendTextMessage(sender, message.speech);
 			break;
 		case 2: //quick replies
 			let replies = [];
