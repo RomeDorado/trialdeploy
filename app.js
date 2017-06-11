@@ -272,7 +272,7 @@ function handleCardMessages(messages, sender) {
 	}
 	sendGenericMessage(sender, elements);
 }
-x
+
 
 function handleApiAiResponse(sender, response) {
 	let responseText = response.result.fulfillment.speech;
