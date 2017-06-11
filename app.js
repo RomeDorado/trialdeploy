@@ -722,8 +722,9 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
-		case "FACEBOOK_WELCOME":
-		sendToApiAi(senderID, payload);
+		case "Return_bot":
+		sendToApiAi(senderID, "Restart Bot");
+		case "FACEBOOK_WELCOME":		
 		break;		
 		case "feed_back": 
 		sendToApiAi(senderID, "Feedback");
