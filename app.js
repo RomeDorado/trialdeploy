@@ -184,7 +184,7 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	var senderID = event.sender.id;
-	if(contexts[0].parameters == 'message'){
+	if(contexts[0].name == 'feedback'){
 		console.log("it worked");
 	}
 	switch (action) {
