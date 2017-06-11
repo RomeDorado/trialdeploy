@@ -723,7 +723,8 @@ function receivedPostback(event) {
 
 	switch (payload) {
 		case "feed_back": 
-		sendTextMessage(senderID, "responseText");//gawing message try mo
+		sendToApiAi(senderID, "Feedback");
+		//sendTextMessage(senderID, "responseText");//gawing message try mo
 		break;
 
 		default:
