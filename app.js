@@ -185,9 +185,8 @@ function handleEcho(messageId, appId, metadata) {
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	var senderID = event.sender.id;
 	switch (action) {
-		case "says-hi":
-
-		console.log((senderID, "Hello din"));
+		case "feedback-action":
+		console.log("it worked");
 		break;
 
 		default:
