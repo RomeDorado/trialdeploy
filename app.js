@@ -723,7 +723,7 @@ function receivedPostback(event) {
 	switch (payload) {
 		default:
 			//unindentified payload
-			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
+			sendTextMessage(senderID, "${payload}");
 			break;
 
 	}
@@ -869,4 +869,5 @@ function isDefined(obj) {
 // Spin up the server
 app.listen(app.get('port'), function () {
 	console.log('running on port', app.get('port'))
+	console.log('starting bot')
 })
