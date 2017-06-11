@@ -186,7 +186,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 		case "says-hi":
 
-		sendTextMessage(sender, "Hello din");
+		sendTextMessage(senderID, "Hello din");
 		break;
 
 		default:
