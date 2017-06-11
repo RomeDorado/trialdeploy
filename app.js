@@ -726,28 +726,51 @@ function receivedPostback(event) {
 		sendToApiAi(senderID, "Restart Bot");
 		case "FACEBOOK_WELCOME":
 		break;
+
 		case "feed_back":
 		sendToApiAi(senderID, "Feedback");
+		break;
+
 		case "Learn_More":
 		sendToApiAi(senderID, "Learn More");
+		break;
+
 		case "Referral_Program":
 		sendToApiAi(senderID, "Referral Program");
+		break;
+
 		case "About_Us":
 		sendToApiAi(senderID, "About Us");
+		break;
+
 		case "Getting_Started":
 		sendToApiAi(senderID, "Getting Started");
+		break;
+
 		case "Stores":
 		sendToApiAi(senderID, "Stores");
+		break;
+
 		case "Orders":
 		sendToApiAi(senderID, "Orders");
+		break;
+
 		case "Delivery":
 		sendToApiAi(senderID, "Delivery");
+		break;
+
 		case "Payments_and_Fees":
 		sendToApiAi(senderID, "Payments and Fees");
+		break;
+
 		case "Pricing":
 		sendToApiAi(senderID, "Pricing");
+		break;
+
 		case "Technical_Issues":
 		sendToApiAi(senderID, "Technical Issues");
+		break;
+
 		case "Customer_Care":
 		sendToApiAi(senderID, "Customer Care");
 		//sendTextMessage(senderID, "responseText");//gawing message try mo
