@@ -184,6 +184,9 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	var senderID = event.sender.id;
+	if(contexts[0].parameters == 'message'){
+		console.log("it worked");
+	}
 	switch (action) {
 		case "feedback-action":
 		console.log("it worked");
@@ -269,7 +272,7 @@ function handleCardMessages(messages, sender) {
 	}
 	sendGenericMessage(sender, elements);
 }
-
+x
 
 function handleApiAiResponse(sender, response) {
 	let responseText = response.result.fulfillment.speech;
