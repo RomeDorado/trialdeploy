@@ -308,6 +308,7 @@ function handleApiAiResponse(sender, response) {
 		let previousType ;
 		let cardTypes = [];
 		let timeout = 0;
+		handleApiAiAction(sender, action, responseText, contexts, parameters);
 		for (var i = 0; i < messages.length; i++) {
 
 			if ( previousType == 1 && (messages[i].type != 1 || i == messages.length - 1)) {
