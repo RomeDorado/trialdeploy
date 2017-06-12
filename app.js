@@ -802,7 +802,8 @@ function receivedPostback(event) {
 
 		default:
 			//unindentified payload
-			sendTextMessage(senderID, `${payload}`);
+			//sendTextMessage(senderID, `${payload}`);
+			sendTextMessage(senderID, responseText);
 			break;
 
 	}
