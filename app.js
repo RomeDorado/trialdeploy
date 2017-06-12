@@ -309,6 +309,7 @@ function handleApiAiResponse(sender, response) {
 		let cardTypes = [];
 		let timeout = 0;
 		handleApiAiAction(sender, action, responseText, contexts, parameters);
+		greetUserText();
 		for (var i = 0; i < messages.length; i++) {
 
 			if ( previousType == 1 && (messages[i].type != 1 || i == messages.length - 1)) {
@@ -751,8 +752,7 @@ function receivedPostback(event) {
 
 	switch (payload) {
 		 case "Get_Started":	
-		 sendToApiAi(senderID, "Get Started");
-		 greetUserText();
+		 sendToApiAi(senderID, "Get Started");		 
 		 break;
 		
 		 case "Return_bot":		 
