@@ -192,7 +192,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 
 		 case "feedback-action":
-		 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters){
+		 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters){	
 		 			let feedback_Message = (isDefined(contexts[0].parameters['feedbackMessage']) &&
 		 			contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
 		
@@ -200,15 +200,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 				let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
 		
 		 				sendEmail("New Feedback", emailContent);
-		 			}
+						 console.log("This is working!!!!!");
+		 			}else{
+						console.log("This is NOT working!!!!!");
+					 }
 		 	}
 		 	sendTextMessage(sender, responseText);
-		 break;
-		case "says-hi":
-
-		console.log((senderID, "Hello din"));
-		break;
-
+		 break;		
 
 		default:
 			//unhandled action, just send back the text
