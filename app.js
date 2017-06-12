@@ -185,19 +185,19 @@ function handleEcho(messageId, appId, metadata) {
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	var senderID = event.sender.id;
 	switch (action) {
-		case "feedback-action":
-			if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters){
-					let feedback_Message = (isDefined(contexts[0].parameters['feedbackMessage']) &&
-					contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
-
-					if(feedback_Message != ""){
-						let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
-
-						sendEmail("New Feedback", emailContent);
-					}
-			}
-			sendTextMessage(sender, responseText);
-		break;
+		// case "feedback-action":
+		// 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters){
+		// 			let feedback_Message = (isDefined(contexts[0].parameters['feedbackMessage']) &&
+		// 			contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
+		//
+		// 			if(feedback_Message != ""){
+		// 				let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
+		//
+		// 				sendEmail("New Feedback", emailContent);
+		// 			}
+		// 	}
+		// 	sendTextMessage(sender, responseText);
+		// break;
 		case "says-hi":
 
 		console.log((senderID, "Hello din"));
@@ -743,62 +743,62 @@ function receivedPostback(event) {
 		// case "Get_Started":
 		// sendToApiAi(senderID, "Get Started");
 		// break;
-
-		case "Return_bot":
-		sendToApiAi(senderID, "Restart Bot");
-		break;
-
-		case "FACEBOOK_WELCOME":
-		break;
-
-		case "feed_back":
-		sendToApiAi(senderID, "Feedback");
-		break;
-
-		case "Learn_More":
-		sendToApiAi(senderID, "Learn More");
-		break;
-
-		case "Referral_Program":
-		sendToApiAi(senderID, "Referral Program");
-		break;
-
-		case "About_Us":
-		sendToApiAi(senderID, "About Us");
-		break;
-
-		case "Getting_Started":
-		sendToApiAi(senderID, "Getting Started");
-		break;
-
-		case "Stores":
-		sendToApiAi(senderID, "Stores");
-		break;
-
-		case "Orders":
-		sendToApiAi(senderID, "Orders");
-		break;
-
-		case "Delivery":
-		sendToApiAi(senderID, "Delivery");
-		break;
-
-		case "Payments_and_Fees":
-		sendToApiAi(senderID, "Payments and Fees");
-		break;
-
-		case "Pricing":
-		sendToApiAi(senderID, "Pricing");
-		break;
-
-		case "Technical_Issues":
-		sendToApiAi(senderID, "Technical Issues");
-		break;
-
-		case "Customer_Care":
-		sendToApiAi(senderID, "Customer Care");
-		//sendTextMessage(senderID, "responseText");//gawing message try mo
-		break;
+		//
+		// case "Return_bot":
+		// sendToApiAi(senderID, "Restart Bot");
+		// break;
+		//
+		// case "FACEBOOK_WELCOME":
+		// break;
+		//
+		// case "feed_back":
+		// sendToApiAi(senderID, "Feedback");
+		// break;
+		//
+		// case "Learn_More":
+		// sendToApiAi(senderID, "Learn More");
+		// break;
+		//
+		// case "Referral_Program":
+		// sendToApiAi(senderID, "Referral Program");
+		// break;
+		//
+		// case "About_Us":
+		// sendToApiAi(senderID, "About Us");
+		// break;
+		//
+		// case "Getting_Started":
+		// sendToApiAi(senderID, "Getting Started");
+		// break;
+		//
+		// case "Stores":
+		// sendToApiAi(senderID, "Stores");
+		// break;
+		//
+		// case "Orders":
+		// sendToApiAi(senderID, "Orders");
+		// break;
+		//
+		// case "Delivery":
+		// sendToApiAi(senderID, "Delivery");
+		// break;
+		//
+		// case "Payments_and_Fees":
+		// sendToApiAi(senderID, "Payments and Fees");
+		// break;
+		//
+		// case "Pricing":
+		// sendToApiAi(senderID, "Pricing");
+		// break;
+		//
+		// case "Technical_Issues":
+		// sendToApiAi(senderID, "Technical Issues");
+		// break;
+		//
+		// case "Customer_Care":
+		// sendToApiAi(senderID, "Customer Care");
+		// //sendTextMessage(senderID, "responseText");//gawing message try mo
+		// break;
 
 		default:
 			//unindentified payload
