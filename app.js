@@ -26,9 +26,15 @@ if (!config.FB_APP_SECRET) {
 if (!config.SERVER_URL) { //used for ink to static files
 	throw new Error('missing SERVER_URL');
 }
-
-
-
+if (!config.SENDGRID_API_KEY) { //used for sending email
+	throw new Error('missing sendgrid_api_key');
+}
+if (!config.EMAIL_FROM) { //used for email from
+	throw new Error('missing email from');
+}
+if (!config.EMAIL_TO) { //used for to
+	throw new Error('missing email to');
+}
 app.set('port', (process.env.PORT || 5000))
 
 //verify request came from facebook
@@ -185,19 +191,19 @@ function handleEcho(messageId, appId, metadata) {
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 
-		// case "feedback-action":
-		// 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters){
-		// 			let feedback_Message = (isDefined(contexts[0].parameters['feedbackMessage']) &&
-		// 			contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
-		//
-		// 			if(feedback_Message != ""){
-		// 				let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
-		//
-		// 				sendEmail("New Feedback", emailContent);
-		// 			}
-		// 	}
-		// 	sendTextMessage(sender, responseText);
-		// break;
+		 case "feedback-action":
+		 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters){
+		 			let feedback_Message = (isDefined(contexts[0].parameters['feedbackMessage']) &&
+		 			contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
+		
+		 			if(feedback_Message != ""){
+		 				let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
+		
+		 				sendEmail("New Feedback", emailContent);
+		 			}
+		 	}
+		 	sendTextMessage(sender, responseText);
+		 break;
 		case "says-hi":
 
 		console.log((senderID, "Hello din"));
@@ -207,7 +213,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
-			console.log(`${action}`);
+			
 	}
 }
 
@@ -934,6 +940,32 @@ function verifyRequestSignature(req, res, buf) {
 			throw new Error("Couldn't validate the request signature.");
 		}
 	}
+}
+
+function sendEmail(subject, content) {
+	var helper = require('sendgrid').mail;
+	var fromEmail = new helper.Email(config.EMAIL_FROM);
+	var toEmail = new helper.Email(config.EMAIL_TO);
+	var subject = 'Feedback from users';
+	var content = new helper.Content('text/html', content);
+	var mail = new helper.Mail(fromEmail, subject, toEmail, content);
+
+	var sg = require('sendgrid')(config.SENDGRID_API_KEY);
+	var request = sg.emptyRequest({
+	method: 'POST',
+	path: '/v3/mail/send',
+	body: mail.toJSON()
+	});
+
+	sg.API(request, function (error, response) {
+	if (error) {
+		console.log('Error response received');
+	}
+	console.log(response.statusCode);
+	console.log(response.body);
+	console.log(response.headers);
+});
+
 }
 
 function isDefined(obj) {
