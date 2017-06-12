@@ -303,8 +303,7 @@ function handleApiAiResponse(sender, response) {
 
 	sendTypingOff(sender);
 
-	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1)) {
-		console.log(action);
+	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1)) {		
 		let timeoutInterval = 1100;
 		let previousType ;
 		let cardTypes = [];
@@ -338,7 +337,7 @@ function handleApiAiResponse(sender, response) {
 		console.log('Unknown query' + response.result.resolvedQuery);
 		sendTextMessage(sender, "I'm not sure what you want. Can you be more specific?");
 	} else if (isDefined(action)) {
-		console.log(`${action}`);
+		console.log('this is the action' + action);
 		handleApiAiAction(sender, action, responseText, contexts, parameters);
 	} else if (isDefined(responseData) && isDefined(responseData.facebook)) {
 		try {
