@@ -192,7 +192,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 
 		 case "feedback-action":
-		 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters){	
+		 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters
+			 || isDefined(contexts[1]) && contexts[1].name == "feedback" && contexts[1].parameters
+			 || isDefined(contexts[2]) && contexts[2].name == "feedback" && contexts[2].parameters){	
 		 			let feedback_Message = (isDefined(contexts[0].parameters['feedbackMessage']) &&
 		 			contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
 		
