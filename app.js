@@ -206,7 +206,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		default:
 			//unhandled action, just send back the text
-			sendTextMessage(sender, `${action}`);
+			sendTextMessage(sender, responseText);
+			console.log(`${action}`);
 	}
 }
 
