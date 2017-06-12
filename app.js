@@ -761,6 +761,7 @@ function receivedPostback(event) {
 		 break;
 
 		 case "FACEBOOK_WELCOME":
+		 sendToApiAi(senderID, "Get Started");
 		 break;
 
 		 case "feed_back":
@@ -809,9 +810,46 @@ function receivedPostback(event) {
 
 		 case "Customer_Care":
 		 sendToApiAi(senderID, "Customer Care");
-		sendTextMessage(senderID, "responseText");//gawing message try mo
+		//sendTextMessage(senderID, "responseText");//gawing message try mo
 		 break;
 
+		 case "back_tolearnmore":
+		sendToApiAi(senderID, "Back to Learn More");
+		 //sendToApiAi(senderID, "back_tolearnmore");
+		 break;
+
+		 case "back_todelivery":
+		 sendToApiAi(senderID, "back_todelivery");
+		 break;
+
+		 case "back_tocustomer":
+		 sendToApiAi(senderID, "back_tocustomer");
+		 break;
+
+		 case "back_totechnical":
+		 sendToApiAi(senderID, "back_totechnical");
+		 break;
+
+		 case "back_togetstarted":
+		 sendToApiAi(senderID, "back_togetstarted");
+		 break;
+
+		 case "back_topayments":
+		 sendToApiAi(senderID, "back_topayments");
+		 break;
+
+		 case "back_toorders":
+		 sendToApiAi(senderID, "back_toorders");
+		 break;
+
+		 case "back_topricing":
+		 sendToApiAi(senderID, "back_topricing");
+		 break;
+
+		 case "back_toreferral":
+		 sendToApiAi(senderID, "back_toreferral");
+		 break;
+		 
 
 		default:
 			//unindentified payload
