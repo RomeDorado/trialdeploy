@@ -740,6 +740,10 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
+		case "Get Started":
+		sendToApiAi(senderID, "Get Started");
+		break;
+
 		case "Return_bot":
 		sendToApiAi(senderID, "Restart Bot");
 		break;
