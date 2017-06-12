@@ -308,6 +308,7 @@ function handleApiAiResponse(sender, response) {
 		let previousType ;
 		let cardTypes = [];
 		let timeout = 0;
+		console.log("this is shit" + action);
 		handleApiAiAction(sender, action, responseText, contexts, parameters);		
 		for (var i = 0; i < messages.length; i++) {
 
