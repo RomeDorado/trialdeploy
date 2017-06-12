@@ -207,7 +207,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 						console.log("This is NOT working!!!!!");
 					 }
 		 	}
-		 	//sendTextMessage(sender, responseText);
+		 	sendTextMessage(sender, responseText);
 		 break;
 
 		default:
