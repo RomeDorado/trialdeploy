@@ -751,6 +751,7 @@ function receivedPostback(event) {
 
 	switch (payload) {
 		 case "Get_Started":
+		 greetUserText();
 		 sendToApiAi(senderID, "Get Started");
 		 break;
 		
