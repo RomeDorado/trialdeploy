@@ -4,7 +4,7 @@ module.exports = {
     API_AI_CLIENT_ACCESS_TOKEN: '181cf58d1ebf4665b25e62ea284f8560',
     FB_APP_SECRET: '7e3da246d5eb37ec54bfaf79afb068e8',
     SERVER_URL: "https://honestbeebot.herokuapp.com/",
-    SENDGRID_API_KEY: "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",
+    SENDGRID_API_KEY: "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",
     EMAIL_FROM: "ics133ust@gmail.com",
     EMAIL_TO: "romedorado@gmail.com"
 };
