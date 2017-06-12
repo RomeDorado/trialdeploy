@@ -6,5 +6,5 @@ module.exports = {
     SERVER_URL: "https://honestbeebot.herokuapp.com/",
     SENDGRID_API_KEY: "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",
     EMAIL_FROM: "ics133ust@gmail.com",
-    EMAIL_TO: "ics133ust@gmail.com"
+    EMAIL_TO: "romedorado@gmail.com"
 };
