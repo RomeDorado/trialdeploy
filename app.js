@@ -191,19 +191,16 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
 
 					if(feedback_Message != ""){
-						console.log(feedback_Message);
+						
 
 						let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
 
 						sendEmail("New Feedback", emailContent);
+						sendTextMessage(sender, emailContent);
 					}
 			}
 			sendTextMessage(sender, responseText);
-		break;
-		case "says-hi":
-
-		console.log((senderID, "Hello din"));
-		break;
+		break;	
 
 		default:
 			//unhandled action, just send back the text
