@@ -81,8 +81,9 @@ app.get('/webhook/', function (req, res) {
  */
 app.post('/webhook/', function (req, res) {
 	var data = req.body;
+	var data2 = res.body;
 	console.log(JSON.stringify(data));
-	console.log(JSON.stringify(res));
+	console.log(JSON.stringify(data2));
 
 
 	// Make sure this is a page subscription
