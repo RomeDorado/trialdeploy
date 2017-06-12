@@ -122,8 +122,6 @@ app.post('/webhook/', function (req, res) {
 		// Assume all went well.
 		// You must send back a 200, within 20 seconds
 		res.sendStatus(200);
-	}else{
-		console.log("what is this");
 	}
 });
 
@@ -209,7 +207,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 						console.log("This is NOT working!!!!!");
 					 }
 		 	}
-		 	sendTextMessage(sender, responseText);
+		 	//sendTextMessage(sender, responseText);
 		 break;
 
 		default:
