@@ -947,7 +947,25 @@ function verifyRequestSignature(req, res, buf) {
 }
 
 function sendEmail(subject, content) {
-	var helper = require('sendgrid').mail;
+
+	var api_key = 'key-2cc6875066bce7da401337300237471d';
+	var domain = 'sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org';
+	var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+	
+	var data = {
+	from: 'Feedbacks <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
+	to: 'romedorado@gmail.com',
+	subject: 'Feedback from users',
+	text: content
+	};
+	
+	mailgun.messages().send(data, function (error, body) {		
+	console.log(body);
+	if(!error){
+		console.log("NO ERROR SENDING EMAIL!");
+	}
+	});
+	/**var helper = require('sendgrid').mail;
 	var fromEmail = new helper.Email(config.EMAIL_FROM);
 	var toEmail = new helper.Email(config.EMAIL_TO);
 	var subject = 'Feedback from users';
@@ -969,7 +987,7 @@ function sendEmail(subject, content) {
 	console.log(response.body);
 	console.log(response.headers);
 });
-
+**/
 }
 
 function isDefined(obj) {
