@@ -81,9 +81,8 @@ app.get('/webhook/', function (req, res) {
  */
 app.post('/webhook/', function (req, res) {
 	var data = req.body;
-	var data2 = res.body;
 	console.log(JSON.stringify(data));
-	console.log(JSON.stringify(data2));
+
 
 
 	// Make sure this is a page subscription
@@ -207,7 +206,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		default:
 			//unhandled action, just send back the text
-			sendTextMessage(sender, responseText);
+			sendTextMessage(sender, `${action}`);
 	}
 }
 
