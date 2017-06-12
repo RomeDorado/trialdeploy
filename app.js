@@ -191,6 +191,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
 
 					if(feedback_Message != ""){
+						console.log(feedback_Message);
+
 						let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
 
 						sendEmail("New Feedback", emailContent);
@@ -740,8 +742,9 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
-		case "Get Started":
+		case "Get_Started":
 		sendToApiAi(senderID, "Get Started");
+		sendToApiAi(senderID, "get started");
 		break;
 
 		case "Return_bot":
