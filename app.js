@@ -850,6 +850,10 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "back_toreferral");
 		 break;
 		 
+		 case "back_consumer":
+		 sendToApiAi(senderID, "back_consumer");
+		 break;
+		 
 
 		default:
 			//unindentified payload
