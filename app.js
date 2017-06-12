@@ -185,6 +185,19 @@ function handleEcho(messageId, appId, metadata) {
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	var senderID = event.sender.id;
 	switch (action) {
+		case "feedback-action":
+			if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters){
+					let feedback_Message = (isDefined(contexts[0].parameters['feedbackMessage']) &&
+					contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
+
+					if(feedback_Message != ""){
+						let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
+
+						sendEmail("New Feedback", emailContent);
+					}
+			}
+			sendTextMessage(sender, responseText);
+		break;
 		case "says-hi":
 
 		console.log((senderID, "Hello din"));
@@ -730,7 +743,7 @@ function receivedPostback(event) {
 		case "Return_bot":
 		sendToApiAi(senderID, "Restart Bot");
 		break;
-		
+
 		case "FACEBOOK_WELCOME":
 		break;
 
@@ -915,6 +928,10 @@ function verifyRequestSignature(req, res, buf) {
 		}
 	}
 }
+
+// function sendEmail(subject, content){
+//
+// }
 
 function isDefined(obj) {
 	if (typeof obj == 'undefined') {
