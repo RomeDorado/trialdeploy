@@ -184,12 +184,23 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	var senderID = event.sender.id;
-	if(contexts[0].name == 'feedback'){
-		console.log("it worked");
-	}
 	switch (action) {
 		case "feedback-action":
-		console.log("it worked");
+			if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters){
+					let feedback_Message = (isDefined(contexts[0].parameters['feedbackMessage']) &&
+					contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
+
+					if(feedback_Message != ""){
+						let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
+
+						sendEmail("New Feedback", emailContent);
+					}
+			}
+			sendTextMessage(sender, responseText);
+		break;
+		case "says-hi":
+
+		console.log((senderID, "Hello din"));
 		break;
 
 		default:
@@ -727,20 +738,17 @@ function receivedPostback(event) {
 	// The 'payload' param is a developer-defined field which is set in a postback
 	// button for Structured Messages.
 	var payload = event.postback.payload;
-	var message = event.message;
-	switch (payload) {		
 
+	switch (payload) {
 		case "Return_bot":
 		sendToApiAi(senderID, "Restart Bot");
 		break;
-		
+
 		case "FACEBOOK_WELCOME":
 		break;
 
 		case "feed_back":
 		sendToApiAi(senderID, "Feedback");
-		
-
 		break;
 
 		case "Learn_More":
@@ -920,6 +928,10 @@ function verifyRequestSignature(req, res, buf) {
 		}
 	}
 }
+
+// function sendEmail(subject, content){
+//
+// }
 
 function isDefined(obj) {
 	if (typeof obj == 'undefined') {
