@@ -81,7 +81,7 @@ app.get('/webhook/', function (req, res) {
 /*
  * All callbacks for Messenger are POST-ed. They will be sent to the same
  * webhook. Be sure to subscribe your app to your page to receive callbacks
- * for your page. 
+ * for your page.
  * https://developers.facebook.com/docs/messenger-platform/product-overview/setup#subscribe_app
  *
  */
@@ -172,7 +172,7 @@ function receivedMessage(event) {
 
 function handleMessageAttachments(messageAttachments, senderID){
 	//for now just reply
-	sendTextMessage(senderID, "Attachment received. Thank you.");	
+	sendTextMessage(senderID, "Attachment received. Thank you.");
 }
 
 function handleQuickReply(senderID, quickReply, messageId) {
@@ -194,13 +194,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 case "feedback-action":
 		 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters
 			 || isDefined(contexts[1]) && contexts[1].name == "feedback" && contexts[1].parameters
-			 || isDefined(contexts[2]) && contexts[2].name == "feedback" && contexts[2].parameters){	
+			 || isDefined(contexts[2]) && contexts[2].name == "feedback" && contexts[2].parameters){
 		 			let feedback_Message = (isDefined(contexts[0].parameters['feedbackMessage']) &&
 		 			contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
-		
+
 		 			if(feedback_Message != ""){
 		 				let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
-		
+
 		 				sendEmail("New Feedback", emailContent);
 						 console.log("This is working!!!!!");
 		 			}else{
@@ -208,12 +208,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					 }
 		 	}
 		 	sendTextMessage(sender, responseText);
-		 break;		
+		 break;
 
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
-			
+
 	}
 }
 
@@ -303,12 +303,13 @@ function handleApiAiResponse(sender, response) {
 
 	sendTypingOff(sender);
 
-	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1)) {		
+	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1)) {
 		let timeoutInterval = 1100;
 		let previousType ;
 		let cardTypes = [];
 		let timeout = 0;
 		console.log("this is shit" + action);
+
 		handleApiAiAction(sender, action, responseText, contexts, parameters);		
 		for (var i = 0; i < messages.length; i++) {
 
@@ -701,8 +702,8 @@ function greetUserText(userId) {
 }
 
 /*
- * Call the Send API. The message data goes in the body. If successful, we'll 
- * get the message id in a response 
+ * Call the Send API. The message data goes in the body. If successful, we'll
+ * get the message id in a response
  *
  */
 function callSendAPI(messageData) {
@@ -737,75 +738,75 @@ function callSendAPI(messageData) {
 /*
  * Postback Event
  *
- * This event is called when a postback is tapped on a Structured Message. 
+ * This event is called when a postback is tapped on a Structured Message.
  * https://developers.facebook.com/docs/messenger-platform/webhook-reference/postback-received
- * 
+ *
  */
 function receivedPostback(event) {
 	var senderID = event.sender.id;
 	var recipientID = event.recipient.id;
 	var timeOfPostback = event.timestamp;
 
-	// The 'payload' param is a developer-defined field which is set in a postback 
-	// button for Structured Messages. 
+	// The 'payload' param is a developer-defined field which is set in a postback
+	// button for Structured Messages.
 	var payload = event.postback.payload;
 
 	switch (payload) {
-		 case "Get_Started":	
-		 sendToApiAi(senderID, "Get Started");		 
+		 case "Get_Started":
+		 sendToApiAi(senderID, "Get Started");
 		 break;
-		
-		 case "Return_bot":		 
+
+		 case "Return_bot":
 		 sendToApiAi(senderID, "Restart Bot");
 		 break;
-		
+
 		 case "FACEBOOK_WELCOME":
 		 break;
-		
+
 		 case "feed_back":
 		 sendToApiAi(senderID, "Feedback");
 		 break;
-		
+
 		 case "Learn_More":
 		 sendToApiAi(senderID, "Learn More");
 		 break;
-		
+
 		 case "Referral_Program":
 		 sendToApiAi(senderID, "Referral Program");
 		 break;
-		
+
 		 case "About_Us":
 		 sendToApiAi(senderID, "About Us");
 		 break;
-		
+
 		 case "Getting_Started":
 		 sendToApiAi(senderID, "Getting Started");
 		 break;
-		
+
 		 case "Stores":
 		 sendToApiAi(senderID, "Stores");
 		 break;
-		
+
 		 case "Orders":
 		 sendToApiAi(senderID, "Orders");
 		 break;
-		
+
 		 case "Delivery":
 		 sendToApiAi(senderID, "Delivery");
 		 break;
-		
+
 		 case "Payments_and_Fees":
 		 sendToApiAi(senderID, "Payments and Fees");
 		 break;
-		
+
 		 case "Pricing":
 		 sendToApiAi(senderID, "Pricing");
 		 break;
-		
+
 		 case "Technical_Issues":
 		 sendToApiAi(senderID, "Technical Issues");
 		 break;
-		
+
 		 case "Customer_Care":
 		 sendToApiAi(senderID, "Customer Care");
 		sendTextMessage(senderID, "responseText");//gawing message try mo
@@ -830,7 +831,7 @@ function receivedPostback(event) {
  *
  * This event is called when a previously-sent message has been read.
  * https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-read
- * 
+ *
  */
 function receivedMessageRead(event) {
 	var senderID = event.sender.id;
@@ -850,7 +851,7 @@ function receivedMessageRead(event) {
  * This event is called when the Link Account or UnLink Account action has been
  * tapped.
  * https://developers.facebook.com/docs/messenger-platform/webhook-reference/account-linking
- * 
+ *
  */
 function receivedAccountLink(event) {
 	var senderID = event.sender.id;
@@ -866,7 +867,7 @@ function receivedAccountLink(event) {
 /*
  * Delivery Confirmation Event
  *
- * This event is sent to confirm the delivery of a message. Read more about 
+ * This event is sent to confirm the delivery of a message. Read more about
  * these fields at https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-delivered
  *
  */
@@ -891,8 +892,8 @@ function receivedDeliveryConfirmation(event) {
 /*
  * Authorization Event
  *
- * The value for 'optin.ref' is defined in the entry point. For the "Send to 
- * Messenger" plugin, it is the 'data-ref' field. Read more at 
+ * The value for 'optin.ref' is defined in the entry point. For the "Send to
+ * Messenger" plugin, it is the 'data-ref' field. Read more at
  * https://developers.facebook.com/docs/messenger-platform/webhook-reference/authentication
  *
  */
@@ -902,9 +903,9 @@ function receivedAuthentication(event) {
 	var timeOfAuth = event.timestamp;
 
 	// The 'ref' field is set in the 'Send to Messenger' plugin, in the 'data-ref'
-	// The developer can set this to an arbitrary value to associate the 
+	// The developer can set this to an arbitrary value to associate the
 	// authentication callback with the 'Send to Messenger' click event. This is
-	// a way to do account linking when the user clicks the 'Send to Messenger' 
+	// a way to do account linking when the user clicks the 'Send to Messenger'
 	// plugin.
 	var passThroughParam = event.optin.ref;
 
@@ -918,8 +919,8 @@ function receivedAuthentication(event) {
 }
 
 /*
- * Verify that the callback came from Facebook. Using the App Secret from 
- * the App Dashboard, we can verify the signature that is sent with each 
+ * Verify that the callback came from Facebook. Using the App Secret from
+ * the App Dashboard, we can verify the signature that is sent with each
  * callback in the x-hub-signature field, located in the header.
  *
  * https://developers.facebook.com/docs/graph-api/webhooks#setup
@@ -985,5 +986,5 @@ function isDefined(obj) {
 
 // Spin up the server
 app.listen(app.get('port'), function () {
-	console.log('running on port', app.get('port'))	
+	console.log('running on port', app.get('port'))
 })
