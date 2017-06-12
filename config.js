@@ -8,8 +8,4 @@ module.exports = {
     EMAIL_FROM: "ics133ust@gmail.com",
     EMAIL_TO: "romedorado@gmail.com",
     MAILGUN_API_KEY: "key-2cc6875066bce7da401337300237471d"
-
 };
-
-
-
