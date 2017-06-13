@@ -212,6 +212,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 break;
 
 		 case "input.welcome": 
+		 function greetUserText(userId) {
 request({
 		uri: 'https://graph.facebook.com/v2.7/' + userId,
 		qs: {
