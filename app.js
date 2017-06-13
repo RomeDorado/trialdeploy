@@ -331,7 +331,7 @@ function handleApiAiResponse(sender, response) {
 				setTimeout(handleCardMessages.bind(null, cardTypes, sender), timeout);
 				cardTypes = [];
 				timeout = i * timeoutInterval;
-				//setTimeout(handleMessage.bind(null, messages[i], sender), timeout);
+				setTimeout(handleMessage.bind(null, messages[i], sender), timeout);
 			} else if ( messages[i].type == 1 && i == messages.length - 1) {
 				cardTypes.push(messages[i]);
                 		timeout = (i - 1) * timeoutInterval;
@@ -341,7 +341,7 @@ function handleApiAiResponse(sender, response) {
 				cardTypes.push(messages[i]);
 			} else {
 				timeout = i * timeoutInterval;
-				//setTimeout(handleMessage.bind(null, messages[i], sender), timeout);
+				setTimeout(handleMessage.bind(null, messages[i], sender), timeout);
 			}
 
 			previousType = messages[i].type;
