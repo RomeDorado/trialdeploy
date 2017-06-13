@@ -310,8 +310,8 @@ function handleApiAiResponse(sender, response) {
 		let timeout = 0;
 		console.log("this is shit" + action);
 
-		handleApiAiAction(sender, action, responseText, contexts, parameters);		
-		for (var i = 0; i < messages.length; i++) {
+		handleApiAiAction(sender, action, responseText, contexts, parameters);
+		/*for (var i = 0; i < messages.length; i++) {
 
 			if ( previousType == 1 && (messages[i].type != 1 || i == messages.length - 1)) {
 
@@ -334,7 +334,7 @@ function handleApiAiResponse(sender, response) {
 
 			previousType = messages[i].type;
 
-		}
+		}*/
 	} else if (responseText == '' && !isDefined(action)) {
 		//api ai could not evaluate input.
 		console.log('Unknown query' + response.result.resolvedQuery);
@@ -849,11 +849,11 @@ function receivedPostback(event) {
 		 case "back_toreferral":
 		 sendToApiAi(senderID, "back_toreferral");
 		 break;
-		 
+
 		 case "back_consumer":
 		 sendToApiAi(senderID, "back_consumer");
 		 break;
-		 
+
 
 		default:
 			//unindentified payload
@@ -993,15 +993,15 @@ function sendEmail(subject, content) {
 	var api_key = 'key-2cc6875066bce7da401337300237471d';
 	var domain = 'sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org';
 	var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
-	
+
 	var data = {
 	from: 'Feedbacks <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
 	to: 'romedorado@gmail.com',
 	subject: 'Feedback from users',
 	text: content
 	};
-	
-	mailgun.messages().send(data, function (error, body) {		
+
+	mailgun.messages().send(data, function (error, body) {
 	console.log(body);
 	if(!error){
 		console.log("NO ERROR SENDING EMAIL!");
