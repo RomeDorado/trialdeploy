@@ -111,6 +111,7 @@ app.post('/webhook/', function (req, res) {
 				} else if (messagingEvent.postback) {
 					receivedPostback(messagingEvent);
 				} else if (messagingEvent.read) {
+					console.log("asdfghjgfdsadfghjkhgfdsa");
 					receivedMessageRead(messagingEvent);
 				} else if (messagingEvent.account_linking) {
 					receivedAccountLink(messagingEvent);
