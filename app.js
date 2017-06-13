@@ -213,29 +213,26 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 	//sendTextMessage(sender, responseText);
 		 break;
 
-		 case "input.welcome":	
-		 //sendImageMessage(sender, "http://i.imgur.com/BTEmXAu.jpg");	 
-		 setTimeout(function(){
-		 greetUserText(sender);		 
-		},2000);
-		let replies = [
-		{
-			"content_type": "text",
-			"title": "I'm a consumer",
-			"payload":"I'm a consumer"
-		},
-		{
-			"content_type": "text",
-			"title": "I'm a merchant",
-			"payload":"I'm a merchat"
+		 case "input.welcome":
+			 //sendImageMessage(sender, "http://i.imgur.com/BTEmXAu.jpg");
+			 setTimeout(function(){
+			 greetUserText(sender);
+			},2000);
+			let replies = [
+				{
+					"title": "I'm a consumer",
+					"payload":"I'm a consumer"
+				},
+				{
+					"title": "I'm a merchant",
+					"payload":"I'm a merchat"
 
-		}			
+				}
+			];
+			sendQuickReply(sender, responseText, replies);
 
-		];
-		sendQuickReply(sender, responseText, replies);
+		break;
 
-		 break;
- 
 		default:
 			//unhandled action, just send back the text
 			//sendTextMessage(sender, responseText);
@@ -249,10 +246,10 @@ function handleMessage(message, sender) {
 
 		case 0: //text
 
-			sendTextMessage(sender, message.speech);			
-			console.log("handle message napupunta");								
-			
-		break;		
+			sendTextMessage(sender, message.speech);
+			console.log("handle message napupunta");
+
+		break;
 
 		case 2: //quick replies
 			let replies = [];
@@ -719,7 +716,7 @@ function greetUserText(userId) {
 
 			var user = JSON.parse(body);
 
-			
+
 			if (user.first_name) {
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
