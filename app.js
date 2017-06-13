@@ -268,6 +268,9 @@ function handleMessage(message, sender) {
 	}
 }
 
+if(handleMessage){
+	console.log("nasend nanaman tang ire");
+}
 
 function handleCardMessages(messages, sender) {
 
