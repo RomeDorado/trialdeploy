@@ -701,13 +701,12 @@ function greetUserText(userId) {
 
 			var user = JSON.parse(body);
 
-
-			callSendAPI("Hello!" + user.first_name);
+			
 			if (user.first_name) {
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
 
-				sendTextMessage(userId, "Welcome " + user.first_name + '!');
+				sendTextMessage(userId, "Hi! " + user.first_name + 'I\'m HonestBee bot, your one-stop platform for an easier, more productive life 🐝  To continue, are you an HonestBee consumer or are you an HonestBee merchant?');
 			} else {
 				console.log("Cannot get data for fb user with id",
 					userId);
