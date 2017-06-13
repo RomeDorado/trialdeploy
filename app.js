@@ -211,9 +211,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 	//sendTextMessage(sender, responseText);
 		 break;
 		 
-		 case "says-hi":
-		 function greetUserText(userId) {
-	//first read user firstname
+		 case "says-hi":		 
 	request({
 		uri: 'https://graph.facebook.com/v2.7/' + userId,
 		qs: {
@@ -238,7 +236,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		}
 	}
 	callSendAPI(messageData);
-				//sendTextMessage(userId, "Welcome " + user.first_name + '!');
+				sendTextMessage(userId, "Welcome " + user.first_name + '!');
 			} else {
 				console.log("Cannot get data for fb user with id",
 					userId);
@@ -248,7 +246,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		}
 
 	});	
-}
+
 
 
 		 break;
