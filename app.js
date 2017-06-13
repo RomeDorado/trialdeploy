@@ -235,7 +235,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		];
 		sendQuickReply(sender, "responseText", replies);
-		},2000);
+		},4000);
 		 break;
  
 		default:
