@@ -210,12 +210,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 	}
 		 	//sendTextMessage(sender, responseText);
 		 break;
-		 
+
 		 //case "says-hi":
 		 //greetUserText(userId);
-	
+
 		// break;
-		 
+
 		default:
 			//unhandled action, just send back the text
 			//sendTextMessage(sender, responseText);
@@ -228,12 +228,12 @@ function handleMessage(message, sender) {
 	switch (message.type) {
 
 		case 0: //text
-			
+
 			sendTextMessage(sender, message.speech);
 			ctr++;
-			console.log("handle message napupunta");								
-			
-		break;		
+			console.log("handle message napupunta");
+
+		break;
 		case 2: //quick replies
 			let replies = [];
 			for (var b = 0; b < message.replies.length; b++) {
@@ -712,7 +712,7 @@ function greetUserText(userId) {
 			console.error(response.error);
 		}
 
-	});	
+	});
 }
 
 /*
@@ -775,7 +775,7 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Restart Bot");
 		 break;
 
-		
+
 		 case "feed_back":
 		 sendToApiAi(senderID, "Feedback");
 		 break;
@@ -826,7 +826,7 @@ function receivedPostback(event) {
 		 break;
 
 		 case "back_tolearnmore":
-		sendToApiAi(senderID, "Back to Learn More");
+		 sendToApiAi(senderID, "Back to Learn More");
 		 //sendToApiAi(senderID, "back_tolearnmore");
 		 break;
 
@@ -868,6 +868,14 @@ function receivedPostback(event) {
 
 		 case 'go_tofeedback':
 		 sendToApiAi(senderID, "Yes");
+		 break;
+
+		 case "go_toappnow":
+		 sendToApiAi(senderID, "Go to App Now");
+		 break;
+
+		 case "check_outstores":
+		 sendToApiAi(senderID, "Check out stores");
 		 break;
 
 		default:
