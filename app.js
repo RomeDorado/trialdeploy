@@ -640,7 +640,7 @@ function sendTypingOn(recipientId) {
 		sender_action: "typing_on"
 	};
 
-	//callSendAPI(messageData);
+	callSendAPI(messageData);
 }
 
 /*
@@ -657,7 +657,7 @@ function sendTypingOff(recipientId) {
 		sender_action: "typing_off"
 	};
 
-	//callSendAPI(messageData);
+	callSendAPI(messageData);
 }
 
 /*
