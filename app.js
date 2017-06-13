@@ -372,7 +372,7 @@ function sendToApiAi(sender, text) {
 
 	sendTypingOn(sender);
 	let apiaiRequest = apiAiService.textRequest(text, {
-		sessionId: sessionIds.get(sender)
+		sessionId: sender
 	});
 
 	apiaiRequest.on('response', (response) => {
@@ -767,19 +767,16 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
-		 case "get_started_payload":
-		 sendToApiAi(senderID, "get_started_payload");
+		 case "getStarted":
+		 sendToApiAi(senderID, "Get Started");
 		 break;
 
 		 case "Return_bot":
 		 sendToApiAi(senderID, "Restart Bot");
 		 break;
 
-		 case "FACEBOOK_WELCOME":
-		 sendToApiAi(senderID, "Get Started");
-		 break;
-
-		 case "feed_back":		 
+		
+		 case "feed_back":
 		 sendToApiAi(senderID, "Feedback");
 		 break;
 
@@ -875,7 +872,7 @@ function receivedPostback(event) {
 
 		default:
 			//unindentified payload
-			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
+			sendTextMessage(senderID, "Can you be more specific?");
 			break;
 
 	}
