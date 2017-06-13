@@ -211,6 +211,34 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 	//sendTextMessage(sender, responseText);
 		 break;
 
+		 case "input.welcome": 
+request({
+		uri: 'https://graph.facebook.com/v2.7/' + userId,
+		qs: {
+			access_token: config.FB_PAGE_TOKEN
+		}
+
+	}, function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+
+			var user = JSON.parse(body);
+
+			if (user.first_name) {
+				console.log("FB user: %s %s, %s",
+					user.first_name, user.last_name, user.gender);
+
+				sendTextMessage(userId, "Welcome " + user.first_name + '!');
+			} else {
+				console.log("Cannot get data for fb user with id",
+					userId);
+			}
+		} else {
+			console.error(response.error);
+		}
+
+	});	
+		 break;
+
 		default:
 			//unhandled action, just send back the text
 			//sendTextMessage(sender, responseText);
@@ -707,9 +735,7 @@ function greetUserText(userId) {
 			console.error(response.error);
 		}
 
-	});
-
-	console.log(userId, "Welcome " + user.first_name + '!');
+	});	
 }
 
 /*
