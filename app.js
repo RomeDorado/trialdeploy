@@ -219,7 +219,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 greetUserText(sender);		 
 		},2000);
 */
-		setTimeout(function(){
+		consumerquickreply(sender, action, responseText, contexts, parameter);
+		/*setTimeout(function(){
 		let replies = [
 		{
 			"content_type": "text",
@@ -235,7 +236,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		];
 		sendQuickReply(sender, " ", replies);
-		},2000);
+	},2000);
+	*/
 		 break;
  
 		default:
@@ -706,8 +708,51 @@ function sendAccountLinking(recipientId) {
 
 	callSendAPI(messageData);
 }
+function consumerquickreply(sender, action, responseText, contexts, parameter){
+var txtmessage = "";
+request({
+		uri: 'https://graph.facebook.com/v2.7/' + sender,
+		qs: {
+			access_token: config.FB_PAGE_TOKEN
+		}
 
+	}, function (error, response, body) {
+		if (!error && response.statusCode == 200) {
 
+			var user = JSON.parse(body);
+
+			
+			if (user.first_name) {
+				console.log("FB user: %s %s, %s",
+					user.first_name, user.last_name, user.gender);
+
+				txtmessage = "Hi " + user.first_name + '! I\'m HonestBee bot, your one-stop platform for an easier, more productive life 🐝  To continue, are you an HonestBee consumer or are you an HonestBee merchant?';
+			} else {
+				console.log("Cannot get data for fb user with id",
+					sender);
+			}
+		} else {
+			console.error(response.error);
+		}
+
+	});
+
+		let replies = [
+		{
+			"content_type": "text",
+			"title": "I'm a consumer",
+			"payload":"I'm a consumer"
+		},
+		{
+			"content_type": "text",
+			"title": "I'm a merchant",
+			"payload":"I'm a merchat"
+
+		}			
+
+		];
+		sendQuickReply(sender, txtmessage, replies);		
+}
 function greetUserText(userId) {
 	//first read user firstname
 	request({
@@ -737,6 +782,8 @@ function greetUserText(userId) {
 
 	});
 }
+
+
 
 /*
  * Call the Send API. The message data goes in the body. If successful, we'll
