@@ -212,10 +212,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 	//sendTextMessage(sender, responseText);
 		 break;
 
-		 //case "says-hi":
-		 //greetUserText(userId);
+		 case "says-hi":
+		 greetUserText(userId);
 
-		// break;
+		 break;
 
 		default:
 			//unhandled action, just send back the text
@@ -229,20 +229,12 @@ function handleMessage(message, sender) {
 	switch (message.type) {
 
 		case 0: //text
-<<<<<<< HEAD
-			
+
 			sendTextMessage(sender, message.speech);			
 			console.log("handle message napupunta");								
 			
 		break;		
-=======
 
-			sendTextMessage(sender, message.speech);
-			ctr++;
-			console.log("handle message napupunta");
-
-		break;
->>>>>>> 9bf9329fb6863aff8f369dc496b4d32cdf4cab42
 		case 2: //quick replies
 			let replies = [];
 			for (var b = 0; b < message.replies.length; b++) {
