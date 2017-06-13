@@ -708,6 +708,8 @@ function greetUserText(userId) {
 		}
 
 	});
+
+	console.log(userId, "Welcome " + user.first_name + '!');
 }
 
 /*
