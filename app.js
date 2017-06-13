@@ -215,10 +215,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		 case "input.welcome":	
 		 //sendImageMessage(sender, "http://i.imgur.com/BTEmXAu.jpg");	 
-		 setTimeout(function(){
+		/* setTimeout(function(){
 		 greetUserText(sender);		 
 		},2000);
-
+*/
 		setTimeout(function(){
 		let replies = [
 		{
@@ -234,8 +234,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		}			
 
 		];
-		sendQuickReply(sender, "responseText", replies);
-		},4000);
+		sendQuickReply(sender, greetUserText(sender), replies);
+		},2000);
 		 break;
  
 		default:
