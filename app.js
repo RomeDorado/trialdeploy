@@ -794,7 +794,7 @@ function receivedPostback(event) {
 		 case "getStarted":
 		 sendToApiAi(senderID, "Get Started");
 		 //greetUserText(sender);
-		 greet(sender, response);
+		 greet(senderID, response);
 		 break;
 
 		 case "Return_bot":
