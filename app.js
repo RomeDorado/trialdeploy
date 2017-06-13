@@ -226,6 +226,7 @@ function handleMessage(message, sender) {
 			if(ctr === 0){
 			sendTextMessage(sender, message.speech);
 			console.log("handle message napupunta");
+			console.log("ctr is" + ctr);
 			ctr++;
 			}
 			break;
