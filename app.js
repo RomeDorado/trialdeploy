@@ -232,7 +232,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		}			
 
 		];
-		sendQuickReply(sender, responseText, replies);
+		sendQuickReply(sender, "responseText", replies);
 
 		 break;
  
