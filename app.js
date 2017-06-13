@@ -214,7 +214,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 break;
 
 		 case "says-hi":
-		 greetUserText(userId);
+		 greetUserText(sender);
 
 		 break;
 
