@@ -727,17 +727,7 @@ request({
 					user.first_name, user.last_name, user.gender);
 
 				txtmessage = "Hi " + user.first_name + '! I\'m HonestBee bot, your one-stop platform for an easier, more productive life 🐝  To continue, are you an HonestBee consumer or are you an HonestBee merchant?';
-			} else {
-				console.log("Cannot get data for fb user with id",
-					sender);
-			}
-		} else {
-			console.error(response.error);
-		}
-
-	});
-
-		let replies = [
+				let replies = [
 		{
 			"content_type": "text",
 			"title": "I'm a consumer",
@@ -751,7 +741,18 @@ request({
 		}			
 
 		];
-		sendQuickReply(sender, txtmessage, replies);		
+		sendQuickReply(sender, txtmessage, replies);
+			} else {
+				console.log("Cannot get data for fb user with id",
+					sender);
+			}
+		} else {
+			console.error(response.error);
+		}
+
+	});
+
+				
 }
 function greetUserText(userId) {
 	//first read user firstname
