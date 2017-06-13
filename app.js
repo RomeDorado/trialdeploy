@@ -224,13 +224,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 }
 
 function handleMessage(message, sender) {
-	var ctr = 0;
+
 	switch (message.type) {
 
 		case 0: //text
 			
-			sendTextMessage(sender, message.speech);
-			ctr++;
+			sendTextMessage(sender, message.speech);			
 			console.log("handle message napupunta");								
 			
 		break;		
@@ -332,7 +331,7 @@ function handleApiAiResponse(sender, response) {
 				setTimeout(handleCardMessages.bind(null, cardTypes, sender), timeout);
 				cardTypes = [];
 				timeout = i * timeoutInterval;
-				setTimeout(handleMessage.bind(null, messages[i], sender), timeout);
+				//setTimeout(handleMessage.bind(null, messages[i], sender), timeout);
 			} else if ( messages[i].type == 1 && i == messages.length - 1) {
 				cardTypes.push(messages[i]);
                 		timeout = (i - 1) * timeoutInterval;
@@ -342,7 +341,7 @@ function handleApiAiResponse(sender, response) {
 				cardTypes.push(messages[i]);
 			} else {
 				timeout = i * timeoutInterval;
-				setTimeout(handleMessage.bind(null, messages[i], sender), timeout);
+				//setTimeout(handleMessage.bind(null, messages[i], sender), timeout);
 			}
 
 			previousType = messages[i].type;
