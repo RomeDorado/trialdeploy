@@ -312,7 +312,7 @@ function handleApiAiResponse(sender, response) {
 		console.log("this is shit" + action);
 
 		handleApiAiAction(sender, action, responseText, contexts, parameters);
-		/*for (var i = 0; i < messages.length; i++) {
+		for (var i = 0; i < messages.length; i++) {
 
 			if ( previousType == 1 && (messages[i].type != 1 || i == messages.length - 1)) {
 
@@ -335,7 +335,7 @@ function handleApiAiResponse(sender, response) {
 
 			previousType = messages[i].type;
 
-		}*/
+		}
 	} else if (responseText == '' && !isDefined(action)) {
 		//api ai could not evaluate input.
 		console.log('Unknown query' + response.result.resolvedQuery);
