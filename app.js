@@ -213,8 +213,24 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 	//sendTextMessage(sender, responseText);
 		 break;
 
-		 case "input.welcome":
+		 case "input.welcome":		 
 		 greetUserText(sender);
+		 let responseText = response.result.fulfillment.speech;
+		let replies = [
+		{
+			"content_type": "text",
+			"title": "I'm a consumer",
+			"payload":"I'm a consumer"
+		},
+		{
+			"content_type": "text",
+			"title": "I'm a merchant",
+			"payload":"I'm a merchat"
+
+		}			
+
+		];
+		sendQuickReply(sender, responseText, replies);
 
 		 break;
 
