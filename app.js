@@ -709,7 +709,7 @@ function greetUserText(userId) {
  *
  */
 
-var list = request;
+var list = request[];
 await Parallel.each(list, async (item) => {
 function callSendAPI(messageData) {
 	request({
