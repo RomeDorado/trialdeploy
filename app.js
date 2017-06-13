@@ -223,7 +223,7 @@ function handleMessage(message, sender) {
 	switch (message.type) {
 		
 		case 0: //text
-			if(ctr == 0){
+			if(ctr === 0){
 			sendTextMessage(sender, message.speech);
 			console.log("handle message napupunta");
 			ctr++;
