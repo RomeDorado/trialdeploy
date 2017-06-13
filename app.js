@@ -232,15 +232,38 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			"content_type": "text",
 			"title": "I'm a merchant",
 			"payload":"I'm a merchat"
+=======
+		 case "input.welcome":
+			 //sendImageMessage(sender, "http://i.imgur.com/BTEmXAu.jpg");
+			 setTimeout(function(){
+			 greetUserText(sender);
+			},2000);
+			let replies = [
+			{
+				"content_type": "text",
+				"title": "I'm a consumer",
+				"payload":"I'm a consumer"
+			},
+			{
+				"content_type": "text",
+				"title": "I'm a merchant",
+				"payload":"I'm a merchat"
+>>>>>>> 96a078a654970820fbe8faca6333c3eab51a25f8
 
-		}			
+			}
+			];
+			sendQuickReply(sender, responseText, replies);
 
+		break;
+
+<<<<<<< HEAD
 		];
 		sendQuickReply(sender, " ", replies);
 	},2000);
 	*/
 		 break;
  
+
 		default:
 			//unhandled action, just send back the text
 			//sendTextMessage(sender, responseText);
@@ -254,10 +277,10 @@ function handleMessage(message, sender) {
 
 		case 0: //text
 
-			sendTextMessage(sender, message.speech);			
-			console.log("handle message napupunta");								
-			
-		break;		
+			sendTextMessage(sender, message.speech);
+			console.log("handle message napupunta");
+
+		break;
 
 		case 2: //quick replies
 			let replies = [];
@@ -768,7 +791,7 @@ function greetUserText(userId) {
 
 			var user = JSON.parse(body);
 
-			
+
 			if (user.first_name) {
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
