@@ -231,7 +231,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			];
 			sendQuickReply(sender, responseText, replies);
 
+<<<<<<< HEAD
 		break;
+=======
+		];
+		sendQuickReply(sender, "responseText", replies);
+>>>>>>> d95f93d8722b9e2450e9b4130f1b27c73c34b757
 
 		default:
 			//unhandled action, just send back the text
