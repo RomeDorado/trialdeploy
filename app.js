@@ -855,6 +855,9 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "back_consumer");
 		 break;
 
+		 case 'go_tofeedback':
+		 sendToApiAi(senderID, "Yes");
+		 break;
 
 		default:
 			//unindentified payload
