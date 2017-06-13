@@ -213,7 +213,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 	//sendTextMessage(sender, responseText);
 		 break;
 
-		 case "input.welcome":		 
+		 case "input.welcome":	
+		 sendImageMessage(sender, "http://i.imgur.com/BTEmXAu.jpg");	 
 		 greetUserText(sender);
 		 //let responseText = response.result.fulfillment.speech;
 		let replies = [
