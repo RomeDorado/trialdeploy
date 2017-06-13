@@ -217,7 +217,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 //sendImageMessage(sender, "http://i.imgur.com/BTEmXAu.jpg");	 
 		 setTimeout(function(){
 		 greetUserText(sender);		 
-		},100);
+		},2000);
 		let replies = [
 		{
 			"content_type": "text",
