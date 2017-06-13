@@ -218,6 +218,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 setTimeout(function(){
 		 greetUserText(sender);		 
 		},2000);
+
+		setTimeout(function(){
 		let replies = [
 		{
 			"content_type": "text",
@@ -233,7 +235,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		];
 		sendQuickReply(sender, "responseText", replies);
-
+		},2000);
 		 break;
  
 		default:
