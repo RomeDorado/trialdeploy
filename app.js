@@ -221,7 +221,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 function handleMessage(message, sender) {
 	var ctr = 0;
 	switch (message.type) {
-		
+
 		case 0: //text
 			if(ctr == 0){
 			sendTextMessage(sender, message.speech);
@@ -763,7 +763,7 @@ function receivedPostback(event) {
 
 	switch (payload) {
 		 case "Get_Started":
-		 sendToApiAi(senderID, "Get Started");
+		 sendToApiAi(senderID, "get_started_payload");
 		 break;
 
 		 case "Return_bot":
