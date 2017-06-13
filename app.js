@@ -818,7 +818,7 @@ function receivedPostback(event) {
 		 break;
 
 		 case "Payments_and_Fees":
-		 sendToApiAi(senderID, "Payments and Fees");
+		 sendToApiAi(senderID, "Payments & Fees");
 		 break;
 
 		 case "Pricing":
