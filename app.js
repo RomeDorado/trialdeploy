@@ -760,6 +760,27 @@ function callSendAPI(messageData) {
  * https://developers.facebook.com/docs/messenger-platform/webhook-reference/postback-received
  *
  */
+
+function greet(sender, response){
+	let responseText = response.result.fulfillment.speech;
+	let replies = [
+	{
+		"content_type": "text",
+		"title": "I'm a consumer",
+		"payload":"I'm a consumer"
+	},
+	{
+		"content_type": "text",
+		"title": "I'm a merchant",
+		"payload":"I'm a merchat"
+
+	}			
+
+	];
+	sendQuickReply(sender, responseText, replies);
+	
+}
+
 function receivedPostback(event) {
 	var senderID = event.sender.id;
 	var recipientID = event.recipient.id;
@@ -773,6 +794,7 @@ function receivedPostback(event) {
 		 case "getStarted":
 		 sendToApiAi(senderID, "Get Started");
 		 //greetUserText(sender);
+		 greet(sender, response);
 		 break;
 
 		 case "Return_bot":
