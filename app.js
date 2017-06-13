@@ -215,7 +215,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		 case "input.welcome":		 
 		 greetUserText(sender);
-		 let responseText = response.result.fulfillment.speech;
+		 //let responseText = response.result.fulfillment.speech;
 		let replies = [
 		{
 			"content_type": "text",
