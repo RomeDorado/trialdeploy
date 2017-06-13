@@ -222,6 +222,7 @@ function handleMessage(message, sender) {
 	switch (message.type) {
 		case 0: //text
 			sendTextMessage(sender, message.speech);
+			console.log("handle message napupunta");
 			break;
 		case 2: //quick replies
 			let replies = [];
