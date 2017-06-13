@@ -249,7 +249,7 @@ function handleMessage(message, sender) {
 
 			};
 
-			//callSendAPI(messageData);
+			callSendAPI(messageData);
 
 			break;
 	}
