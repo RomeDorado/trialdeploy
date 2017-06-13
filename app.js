@@ -250,6 +250,7 @@ function handleMessage(message, sender) {
 			};
 
 			callSendAPI(messageData);
+			console.log("PAYLOAD LOG");
 
 			break;
 	}
@@ -386,6 +387,7 @@ function sendTextMessage(recipientId, text) {
 		}
 	}
 	callSendAPI(messageData);
+	console.log("SEND TEXT MESSAGE LOG");
 }
 
 /*
