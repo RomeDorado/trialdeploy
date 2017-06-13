@@ -234,7 +234,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		}			
 
 		];
-		sendQuickReply(sender, greetUserText(sender), replies);
+		sendQuickReply(sender, "bakit ayaw", replies);
 		},2000);
 		 break;
  
