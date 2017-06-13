@@ -229,8 +229,11 @@ function handleMessage(message, sender) {
 			console.log("handle message napupunta");
 			console.log("ctr is" + ctr);
 			
-		}		
+		}else{
+
+			
 		break;
+		}	
 		case 2: //quick replies
 			let replies = [];
 			for (var b = 0; b < message.replies.length; b++) {
