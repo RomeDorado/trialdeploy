@@ -249,7 +249,7 @@ function handleMessage(message, sender) {
 
 			};
 
-			callSendAPI(messageData);
+			//callSendAPI(messageData);
 
 			break;
 	}
@@ -625,7 +625,7 @@ function sendTypingOn(recipientId) {
 		sender_action: "typing_on"
 	};
 
-	//callSendAPI(messageData);
+	callSendAPI(messageData);
 }
 
 /*
