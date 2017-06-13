@@ -218,8 +218,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		/* setTimeout(function(){
 		 greetUserText(sender);		 
 		},2000);
-*/
+*/		setTimeout(function(){
 		consumerquickreply(sender, action, responseText, contexts);
+		},2000);
 		/*setTimeout(function(){
 		let replies = [
 		{
