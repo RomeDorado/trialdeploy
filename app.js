@@ -777,26 +777,6 @@ function callSendAPI(messageData) {
  *
  */
 
-function greet(sender, response){
-	let responseText = response.result.fulfillment.speech;
-	let replies = [
-	{
-		"content_type": "text",
-		"title": "I'm a consumer",
-		"payload":"I'm a consumer"
-	},
-	{
-		"content_type": "text",
-		"title": "I'm a merchant",
-		"payload":"I'm a merchat"
-
-	}			
-
-	];
-	sendQuickReply(sender, responseText, replies);
-	
-}
-
 function receivedPostback(event) {
 	var senderID = event.sender.id;
 	var recipientID = event.recipient.id;
