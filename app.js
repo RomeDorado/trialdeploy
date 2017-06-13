@@ -86,6 +86,7 @@ app.get('/webhook/', function (req, res) {
  * https://developers.facebook.com/docs/messenger-platform/product-overview/setup#subscribe_app
  *
  */
+
 app.post('/webhook/', function (req, res) {
 	var data = req.body;
 	console.log(JSON.stringify(data));
@@ -639,7 +640,7 @@ function sendTypingOn(recipientId) {
 		sender_action: "typing_on"
 	};
 
-	callSendAPI(messageData);
+	//callSendAPI(messageData);
 }
 
 /*
@@ -656,7 +657,7 @@ function sendTypingOff(recipientId) {
 		sender_action: "typing_off"
 	};
 
-	callSendAPI(messageData);
+	//callSendAPI(messageData);
 }
 
 /*
