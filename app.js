@@ -779,8 +779,7 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Get Started");
 		 break;
 
-		 case "feed_back":
-		 greetUserText(userId);
+		 case "feed_back":		 
 		 sendToApiAi(senderID, "Feedback");
 		 break;
 
