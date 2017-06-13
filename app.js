@@ -212,7 +212,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 break;
 
 		 case "input.welcome": 
-		 function greetUserText(userId) {
+		 function sendwelcome(userId) {
 request({
 		uri: 'https://graph.facebook.com/v2.7/' + userId,
 		qs: {
@@ -223,7 +223,8 @@ request({
 		if (!error && response.statusCode == 200) {
 
 			var user = JSON.parse(body);
-
+		
+			
 			if (user.first_name) {
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
@@ -236,6 +237,16 @@ request({
 		} else {
 			console.error(response.error);
 		}
+
+			var messageData = {
+		recipient: {
+			id: recipientId
+		},
+		message: {
+			text: user.first_name
+		}
+	}
+	callSendAPI(messageData);
 
 	});	
 		 }
