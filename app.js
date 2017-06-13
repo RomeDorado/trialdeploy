@@ -225,11 +225,12 @@ function handleMessage(message, sender) {
 		case 0: //text
 			if(ctr === 0){
 			sendTextMessage(sender, message.speech);
+			ctr++;
 			console.log("handle message napupunta");
 			console.log("ctr is" + ctr);
-			ctr++;
-			}
-			break;
+			
+		}		
+		break;
 		case 2: //quick replies
 			let replies = [];
 			for (var b = 0; b < message.replies.length; b++) {
