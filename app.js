@@ -767,7 +767,7 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
-		 case "Get_Started":
+		 case "get_started_payload":
 		 sendToApiAi(senderID, "get_started_payload");
 		 break;
 
