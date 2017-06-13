@@ -211,10 +211,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 	//sendTextMessage(sender, responseText);
 		 break;
 		 
-		 case "says-hi":
-		 greetUserText(userId);
+		 //case "says-hi":
+		 //greetUserText(userId);
 	
-		 break;
+		// break;
 		 
 		default:
 			//unhandled action, just send back the text
@@ -780,6 +780,7 @@ function receivedPostback(event) {
 		 break;
 
 		 case "feed_back":
+		 greetUserText(userId);
 		 sendToApiAi(senderID, "Feedback");
 		 break;
 
