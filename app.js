@@ -215,8 +215,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		 case "input.welcome":	
 		 //sendImageMessage(sender, "http://i.imgur.com/BTEmXAu.jpg");	 
+		 setTimeout(function(){
 		 greetUserText(sender);		 
-		
+		},100);
 		let replies = [
 		{
 			"content_type": "text",
