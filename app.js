@@ -9,8 +9,6 @@ const request = require('request');
 const app = express();
 const uuid = require('uuid');
 const async = require('async');
-const Parallel = require('async-parallel');
-
 
 
 // Messenger API parameters
@@ -710,8 +708,6 @@ function greetUserText(userId) {
  *
  */
 
-var list = request;
-await parallel.each(list, async (item) => {
 function callSendAPI(messageData) {
 	request({
 		uri: 'https://graph.facebook.com/v2.6/me/messages',
@@ -738,7 +734,7 @@ function callSendAPI(messageData) {
 		}
 	});
 }
-});
+
 
 
 /*
