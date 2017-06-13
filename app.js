@@ -213,37 +213,28 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 	//sendTextMessage(sender, responseText);
 		 break;
 
-<<<<<<< HEAD
 		 case "input.welcome":
 			 //sendImageMessage(sender, "http://i.imgur.com/BTEmXAu.jpg");
 			 setTimeout(function(){
 			 greetUserText(sender);
 			},2000);
 			let replies = [
-				{
-					"title": "I'm a consumer",
-					"payload":"I'm a consumer"
-				},
-				{
-					"title": "I'm a merchant",
-					"payload":"I'm a merchat"
-				}
+			{
+				"content_type": "text",
+				"title": "I'm a consumer",
+				"payload":"I'm a consumer"
+			},
+			{
+				"content_type": "text",
+				"title": "I'm a merchant",
+				"payload":"I'm a merchat"
+
+			}
 			];
 			sendQuickReply(sender, responseText, replies);
 
-<<<<<<< HEAD
 		break;
-=======
-		];
-		sendQuickReply(sender, "responseText", replies);
-<<<<<<< HEAD
->>>>>>> d95f93d8722b9e2450e9b4130f1b27c73c34b757
 
-=======
-		},2000);
-		 break;
-
->>>>>>> 98e093be3c2a42ee3fd0158df5bc8344f56249f4
 		default:
 			//unhandled action, just send back the text
 			//sendTextMessage(sender, responseText);
