@@ -772,7 +772,7 @@ function receivedPostback(event) {
 	switch (payload) {
 		 case "getStarted":
 		 sendToApiAi(senderID, "Get Started");
-		 greetUserText(sender);
+		 //greetUserText(sender);
 		 break;
 
 		 case "Return_bot":
