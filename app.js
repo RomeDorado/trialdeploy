@@ -11,6 +11,7 @@ const uuid = require('uuid');
 const async = require('async');
 
 
+
 // Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
 	throw new Error('missing FB_PAGE_TOKEN');
@@ -707,6 +708,9 @@ function greetUserText(userId) {
  * get the message id in a response
  *
  */
+
+var list = request;
+await Parallel.each(list, async (item) => {
 function callSendAPI(messageData) {
 	request({
 		uri: 'https://graph.facebook.com/v2.6/me/messages',
@@ -733,7 +737,7 @@ function callSendAPI(messageData) {
 		}
 	});
 }
-
+});
 
 
 /*
