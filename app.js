@@ -801,7 +801,7 @@ function receivedPostback(event) {
 		 break;
 
 		 case "Orders":
-		 sendToApiAi(senderID, "Orders");
+		 sendToApiAi(senderID, "back_toorders");
 		 break;
 
 		 case "Delivery":
@@ -851,7 +851,7 @@ function receivedPostback(event) {
 		 break;
 
 		 case "back_toorders":
-		 sendToApiAi(senderID, "back_toorders");
+		 sendToApiAi(senderID, "go_toorders");
 		 break;
 
 		 case "back_topricing":
