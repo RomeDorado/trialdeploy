@@ -214,10 +214,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 break;
 
 		 case "input.welcome":	
-		 sendImageMessage(sender, "http://i.imgur.com/BTEmXAu.jpg");	 
-		 greetUserText(sender);
-		 //let responseText = response.result.fulfillment.speech;
-/*		
+		 //sendImageMessage(sender, "http://i.imgur.com/BTEmXAu.jpg");	 
+		 greetUserText(sender);		 
+		
 		let replies = [
 		{
 			"content_type": "text",
@@ -232,8 +231,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		}			
 
 		];
-		sendQuickReply(sender, title, replies);
-*/
+		sendQuickReply(sender, responseText, replies);
+
 		 break;
  
 		default:
