@@ -226,8 +226,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
-<<<<<<< HEAD
-=======
 function handleMessage(message, sender) {
 
 	switch (message.type) {
@@ -270,7 +268,6 @@ function handleMessage(message, sender) {
 	}
 }
 
->>>>>>> cd16cdbb39e4a0efbac11b883dce4960f48ec29e
 
 function handleCardMessages(messages, sender) {
 
@@ -319,6 +316,7 @@ function handleApiAiResponse(sender, response) {
 	let parameters = response.result.parameters;
 
 	sendTypingOff(sender);
+		
 	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1) && action != "input.unknown" && action != "feedback-action"){
 		let timeoutInterval = 1100;
 		let previousType ;
