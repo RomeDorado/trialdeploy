@@ -226,7 +226,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
-function handleMessage(message, sender) {
+var hMessage = function handleMessage(message, sender) {
 
 	switch (message.type) {
 
@@ -234,7 +234,6 @@ function handleMessage(message, sender) {
 
 			sendTextMessage(sender, message.speech);
 			console.log("handle message napupunta");
-
 		break;
 
 		case 2: //quick replies
@@ -265,7 +264,6 @@ function handleMessage(message, sender) {
 
 			callSendAPI(messageData);
 			console.log("PAYLOAD LOG");
-
 			break;
 	}
 }
@@ -1120,13 +1118,6 @@ function isDefined(obj) {
 	return obj != null;
 }
 
-
-
-async.waterfall([
-
-handleMessage(message, sender)
-
-]);
 
 // Spin up the server
 app.listen(app.get('port'), function () {
