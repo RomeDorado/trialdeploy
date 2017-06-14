@@ -57,6 +57,7 @@ app.use(bodyParser.json())
 
 
 
+
 const apiAiService = apiai(config.API_AI_CLIENT_ACCESS_TOKEN, {
 	language: "en",
 	requestSource: "fb"
@@ -69,7 +70,7 @@ app.get('/', function (req, res) {
 })
 
 // for Facebook verification
-app.get('/webhook/', function (req, res) {
+app.get('/handlemess/', function (req, res) {
 	console.log("request");
 	if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === config.FB_VERIFY_TOKEN) {
 		res.status(200).send(req.query['hub.challenge']);
@@ -81,7 +82,7 @@ app.get('/webhook/', function (req, res) {
 
 /*
  * All callbacks for Messenger are POST-ed. They will be sent to the same
- * webhook. Be sure to subscribe your app to your page to receive callbacks
+ * handlemess. Be sure to subscribe your app to your page to receive callbacks
  * for your page.
  * https://developers.facebook.com/docs/messenger-platform/product-overview/setup#subscribe_app
  *
@@ -1164,6 +1165,14 @@ function isDefined(obj) {
 
 	return obj != null;
 }
+
+
+
+async.waterfall([
+
+handleMessage(message, sender)
+
+]);
 
 // Spin up the server
 app.listen(app.get('port'), function () {
