@@ -364,8 +364,8 @@ function handleApiAiResponse(sender, response) {
 	let parameters = response.result.parameters;
 
 	sendTypingOff(sender);
-
-	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1)) {
+		
+	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1) && action != "input.unkown"){
 		let timeoutInterval = 1100;
 		let previousType ;
 		let cardTypes = [];
@@ -1166,13 +1166,6 @@ function isDefined(obj) {
 	return obj != null;
 }
 
-
-
-async.waterfall([
-
-handleMessage(message, sender)
-
-]);
 
 // Spin up the server
 app.listen(app.get('port'), function () {
