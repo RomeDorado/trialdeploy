@@ -226,7 +226,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
-var hMessage = function handleMessage(message, sender) {
+function handleMessage(message, sender) {
 
 	switch (message.type) {
 
@@ -316,7 +316,7 @@ function handleApiAiResponse(sender, response) {
 	let parameters = response.result.parameters;
 
 	sendTypingOff(sender);
-		
+
 	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1) && action != "input.unknown"){
 		let timeoutInterval = 1100;
 		let previousType ;
