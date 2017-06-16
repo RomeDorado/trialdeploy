@@ -212,6 +212,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					 }
 		 	}
 		 	sendTextMessage(sender, responseText);
+
+			console.log(responseText);
+
 		 break;
 
 		 case "input.welcome":
@@ -400,6 +403,7 @@ function sendTextMessage(recipientId, text) {
 	}
 	callSendAPI(messageData);
 	console.log("SEND TEXT MESSAGE LOG");
+	console.log(messageData);
 }
 
 /*
@@ -927,6 +931,10 @@ function receivedPostback(event) {
 
 		 case "check_outstores":
 		 sendToApiAi(senderID, "Check out stores");
+		 break;
+
+		 case "go_toappref":
+		 sendToApiAi(senderid, "Go to App Now");
 		 break;
 
 		default:
