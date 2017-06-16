@@ -320,7 +320,7 @@ function handleApiAiResponse(sender, response) {
 
 	sendTypingOff(sender);
 		
-	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1) && action != "input.unknown" && action != "feedback-action"){
+	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1) && action != "input.unknown"){
 		let timeoutInterval = 1100;
 		let previousType ;
 		let cardTypes = [];
