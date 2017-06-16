@@ -212,6 +212,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					 }
 		 	}
 		 	sendTextMessage(sender, responseText);
+			console.log(responseText);
 		 break;
 
 		 case "input.welcome":
