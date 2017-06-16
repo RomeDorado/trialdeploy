@@ -814,7 +814,7 @@ function receivedPostback(event) {
 	// The 'payload' param is a developer-defined field which is set in a postback
 	// button for Structured Messages.
 	var payload = event.postback.payload;
-
+	
 	switch (payload) {
 		 case "getStarted":
 		 sendToApiAi(senderID, "Get Started");
