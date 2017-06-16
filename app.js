@@ -355,7 +355,6 @@ function handleApiAiResponse(sender, response) {
 		sendTextMessage(sender, "I'm not sure what you want. Can you be more specific?");
 	} else if (isDefined(action)) {
 		console.log('this is the action' + action);
-		console.log("this is the response text: " + responseData.facebook);
 		handleApiAiAction(sender, action, responseText, contexts, parameters);
 	} else if (isDefined(responseData) && isDefined(responseData.facebook)) {
 		try {
