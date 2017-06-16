@@ -401,6 +401,7 @@ function sendTextMessage(recipientId, text) {
 	}
 	callSendAPI(messageData);
 	console.log("SEND TEXT MESSAGE LOG");
+	console.log("text");
 }
 
 /*
