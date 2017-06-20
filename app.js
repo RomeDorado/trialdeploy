@@ -707,7 +707,7 @@ request({
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
 
-				txtmessage = "Hi " + user.first_name + '! I\'m HonestBee bot, your one-stop platform for an easier, more productive life 🐝  To continue, are you an HonestBee consumer or are you an HonestBee merchant?';
+				txtmessage = "Hi " + user.first_name + '! I\'m HonestBee bot, your all-in-one personal concierge and delivery app. :bee:  To continue, are you a consumer or a merchant?”';
 				let replies = [
 		{
 			"content_type": "text",
