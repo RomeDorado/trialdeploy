@@ -945,6 +945,10 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Food");
 		 break;
 
+		 case "grocery":
+		 sendToApiAi(senderID, "Grocery");
+		 break;
+
 		 case "serviceable_areas":
 		 sendToApiAi(senderID, "Serviceable Areas");
 		 break;
