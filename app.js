@@ -934,11 +934,11 @@ function receivedPostback(event) {
 		 break;
 
 		 case "go_toappref":
-		 sendToApiAi(senderid, "Go to App Now");
+		 sendToApiAi(senderID, "Go to App Now");
 		 break;
 
 		 case "consumer_choice":
-		 sendToApiAi(senderid, "Consumer Choice");
+		 sendToApiAi(senderID, "Consumer Choice");
 		 break;
 
 		default:
