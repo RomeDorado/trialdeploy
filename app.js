@@ -319,7 +319,7 @@ function handleApiAiResponse(sender, response) {
 	let parameters = response.result.parameters;
 
 	sendTypingOff(sender);
-		
+
 	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1) && action != "input.unknown"){
 		let timeoutInterval = 1100;
 		let previousType ;
@@ -818,7 +818,7 @@ function receivedPostback(event) {
 	// The 'payload' param is a developer-defined field which is set in a postback
 	// button for Structured Messages.
 	var payload = event.postback.payload;
-	
+
 	switch (payload) {
 		 case "getStarted":
 		 sendToApiAi(senderID, "Get Started");
@@ -935,6 +935,10 @@ function receivedPostback(event) {
 
 		 case "go_toappref":
 		 sendToApiAi(senderid, "Go to App Now");
+		 break;
+
+		 case "consumer_choice":
+		 sendToApiAi(senderid, "Consumer Choice");
 		 break;
 
 		default:
