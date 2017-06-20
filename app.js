@@ -951,6 +951,7 @@ function receivedPostback(event) {
 
 		 case "back_consumerfood":
 		 sendToApiAi(senderID, "Back_Food");
+		 break;
 
 		default:
 			//unindentified payload
