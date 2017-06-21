@@ -231,7 +231,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 			let emailaddress = (isDefined(contexts[0].parameters['userEmail']) &&
 		 			contexts[0].parameters['userEmail'] != "") ? contexts[0].parameters['userEmail'] : "";
 
-					 readDirectory(emailaddress);
+					 readDirectory(sender, emailaddress);
 					 console.log(emailaddress + "EMAIL ITO");
 			
 			 }
@@ -244,7 +244,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
-function readDirectory(email){
+function readDirectory(sender, email){
 
 console.log("before");
 var Arry = [];
@@ -267,8 +267,13 @@ for(var x = 0; x < Arry.length; x+=1){
 //console.log(Arry[x]);
    if (Arry[x] == email){
 
-      console.log("wow " + Arry[x]); 
-      console.log(Arry[x+1]);
+      console.log("email " + Arry[x]); 
+      console.log("role" + Arry[x+1]);
+
+	  var role = Arry[x+1];
+	  sendToApiAi(sender, role);
+
+
     
 
     }else{
