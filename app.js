@@ -282,7 +282,7 @@ for(var x = 0; x < Arry.length; x+=1){
 	 console.log(error);
     }
 	if(error > 0){
-		sendToApiAi(sender, "Existing Merchant");
+		//sendToApiAi(sender, "Existing Merchant");
 	}
 
   }
