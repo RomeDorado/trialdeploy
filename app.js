@@ -9,6 +9,7 @@ const request = require('request');
 const app = express();
 const uuid = require('uuid');
 const async = require('async');
+const fs = require('fs');
 
 
 // Messenger API parameters
@@ -216,7 +217,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			console.log(responseText);
 
 		 break;
-		
+
+		 case "input.welcome":
+		 setTimeout(function(){
+				consumerquickreply(sender, action, responseText, contexts);
+				},2000);
+		 break;
+
 		 case "enterEmail":	
 		 //sendTextMessage(sender, "Enter your email: ");
 			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
@@ -230,12 +237,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			
 			 }
 
-		 break;
+			 sendTextMessage(sender, responseText);
+			 
 
-		 case "input.welcome":
-		 setTimeout(function(){
-				consumerquickreply(sender, action, responseText, contexts);
-				},2000);
 		 break;
 		default:
 			//unhandled action, just send back the text
@@ -243,6 +247,70 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 	}
 }
+
+function readDirectory(sender, email){
+
+console.log("before");
+var Arry = [];
+var lineReader = require('readline').createInterface({  
+input: require('fs').createReadStream('./files/directory')
+});
+
+lineReader.on('line', function (line) {
+Arry.push(line);
+});
+
+lineReader.on('close', function (line) {
+
+for(var i = 0; i < i.length; i += 2) {  // take every second element
+    ar.push(a[i]);
+}
+
+var error = 0;
+var count = [];
+for(var x = 0; x < Arry.length; x+=1){
+//console.log(Arry[x]);
+   if (Arry[x] == email){
+
+      console.log("email " + Arry[x]); 
+      console.log("role" + Arry[x+1]);
+
+	  var role = Arry[x+1];
+	  sendToApiAi(sender, role);
+
+
+    
+
+    }else{
+		error++;
+		count.push(error);
+     //   sendToApiAi(sender, "Existing Merchant");
+	 console.log(count);
+	 
+	
+    }
+
+	
+
+  }
+
+  if (count[0] != null) {
+		sendToApiAi(sender, "Existing Merchant");
+	}
+
+
+});
+console.log("after");
+
+}
+/*
+var data = fs.readFileSync('./files/directory', 'utf8');
+var dir = [] = data.split(" ");
+var email_address = dir[0];
+var role = dir[1];
+*/
+
+
 
 function handleMessage(message, sender) {
 
@@ -335,7 +403,8 @@ function handleApiAiResponse(sender, response) {
 
 	sendTypingOff(sender);
 
-	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1) && action != "input.unknown"){
+	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1) && action != "input.unknown" 
+	&& action != "enterEmail"){
 		let timeoutInterval = 1100;
 		let previousType ;
 		let cardTypes = [];
@@ -1156,6 +1225,10 @@ function sendEmail(subject, content) {
 });
 **/
 }
+
+
+
+//console.log(email_address + " " + role);
 
 function isDefined(obj) {
 	if (typeof obj == 'undefined') {
