@@ -1200,7 +1200,7 @@ function sendEmail(subject, content) {
 
 
 
-console.log(email_address + " " + role);
+//console.log(email_address + " " + role);
 
 function isDefined(obj) {
 	if (typeof obj == 'undefined') {
