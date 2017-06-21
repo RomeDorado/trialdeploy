@@ -21,7 +21,7 @@
     "line-reader": "^0.4.0",
     "line-reader-sync": "^0.1.0",
     "mailgun-js": "latest",
-    "request": "^2.72.0",
+    "request": "^2.81.0",
     "sendgrid": "^4.2.0",
     "uuid": "^2.0.3"
   }
