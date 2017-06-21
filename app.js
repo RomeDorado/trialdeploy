@@ -268,6 +268,7 @@ for(var i = 0; i < i.length; i += 2) {  // take every second element
 
 var error = 0;
 var count = [];
+var role;
 for(var x = 0; x < Arry.length; x+=1){
 //console.log(Arry[x]);
    if (Arry[x] == email){
@@ -275,8 +276,8 @@ for(var x = 0; x < Arry.length; x+=1){
       console.log("email " + Arry[x]); 
       console.log("role" + Arry[x+1]);
 
-	  var role = Arry[x+1];
-	  sendToApiAi(sender, role);
+		role = Arry[x+1];
+	  
 
 
     
@@ -293,6 +294,7 @@ for(var x = 0; x < Arry.length; x+=1){
 	
 
   }
+  sendToApiAi(sender, role);
 
   if (count[0] != null) {
 		sendToApiAi(sender, "Existing Merchant");
