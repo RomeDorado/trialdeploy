@@ -277,14 +277,16 @@ for(var x = 0; x < Arry.length; x+=1){
     
 
     }else{
-		error ++;
+		error += error;
      //   sendToApiAi(sender, "Existing Merchant");
 	 console.log(error);
-	 if(error > 0){
+	 
+	
+    }
+
+	if(error > 0){
 		sendToApiAi(sender, "Existing Merchant");
 	}
-    }
-	
 
   }
 
