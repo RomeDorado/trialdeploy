@@ -236,7 +236,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					 console.log(emailaddress + "EMAIL ITO");
 			
 			 }
-
+			 
+			 
 			 sendTextMessage(sender, responseText);
 			 
 
