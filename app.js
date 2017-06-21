@@ -823,9 +823,9 @@ request({
 
 
 }
-function sendFoodPartner(sender){
+function sendFoodPartner(senderID){
 	request({
-		uri: 'https://graph.facebook.com/v2.7/' + sender,
+		uri: 'https://graph.facebook.com/v2.7/' + senderID,
 		qs: {
 			access_token: config.FB_PAGE_TOKEN
 		}
@@ -1099,7 +1099,7 @@ function receivedPostback(event) {
 		 break;
 
 		 case "food_manual":
-		 sendFoodPartner(sender);
+		 sendFoodPartner(senderID);
 		 break;
 
 		default:
