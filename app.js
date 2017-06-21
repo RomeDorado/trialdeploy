@@ -265,7 +265,7 @@ for(var i = 0; i < i.length; i += 2) {  // take every second element
 
 for(var x = 0; x < Arry.length; x+=1){
 //console.log(Arry[x]);
-   if (Arry[x] == 'patco@gmail.com'){
+   if (Arry[x] == email){
 
       console.log("wow " + Arry[x]); 
       console.log(Arry[x+1]);
