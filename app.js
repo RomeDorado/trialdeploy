@@ -451,7 +451,7 @@ function handleApiAiResponse(sender, response) {
 			sendTextMessage(sender, err.message);
 		}
 	} else if (isDefined(responseText)) {
-
+		console.log("this is the responseText" + responseText);
 		sendTextMessage(sender, responseText);
 	}
 }
