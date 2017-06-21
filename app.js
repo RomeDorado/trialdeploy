@@ -262,7 +262,7 @@ for(var i = 0; i < i.length; i += 2) {  // take every second element
     ar.push(a[i]);
 }
 
-
+var error = '';
 for(var x = 0; x < Arry.length; x+=1){
 //console.log(Arry[x]);
    if (Arry[x] == email){
@@ -277,7 +277,9 @@ for(var x = 0; x < Arry.length; x+=1){
     
 
     }else{
-        sendToApiAi(sender, "Existing Merchant");
+		error += "wrong";
+     //   sendToApiAi(sender, "Existing Merchant");
+	 console.log(error);
     }
 
   }
