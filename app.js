@@ -285,7 +285,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				error++;
 				count.push(error);
 			//   sendToApiAi(sender, "Existing Merchant");
-			console.log(count);
+			
 			
 			
 			}
@@ -295,6 +295,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		}
 
 		if (count[0] != null) {
+				console.log(JSON.stringify(count) + "this is the count");
 				sendToApiAi(sender, "Wrong");
 			}
 
