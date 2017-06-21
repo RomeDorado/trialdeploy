@@ -270,8 +270,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		var count = [];
 		for(var x = 0; x < Arry.length; x+=1){
 		//console.log(Arry[x]);
-		if (Arry[x] == email){
-
+		if (Arry[x] == email){	
+			
 			console.log("email " + Arry[x]); 
 			console.log("role" + Arry[x+1]);
 
@@ -279,7 +279,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			sendToApiAi(sender, role);
 
 
-			
+			break;
 
 			}else{
 				error++;
@@ -289,9 +289,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			
 			
 			}
-
-			
-
 		}
 
 		if (count[0] != null) {
