@@ -224,7 +224,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				},2000);
 		 break;
 
-		 case "enterEmail":	
+		 case "enterEmail":
 		 //sendTextMessage(sender, "Enter your email: ");
 			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
 			 || isDefined(contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
@@ -234,12 +234,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 					 readDirectory(sender, emailaddress);
 					 console.log(emailaddress + "EMAIL ITO");
-			
+
 			 }
-			 
-			 
+
+
 			 sendTextMessage(sender, responseText);
-			 
+
 
 		 break;
 		default:
@@ -253,7 +253,7 @@ function readDirectory(sender, email){
 
 console.log("before");
 var Arry = [];
-var lineReader = require('readline').createInterface({  
+var lineReader = require('readline').createInterface({
 input: require('fs').createReadStream('./files/directory')
 });
 
@@ -273,25 +273,25 @@ for(var x = 0; x < Arry.length; x+=1){
 //console.log(Arry[x]);
    if (Arry[x] == email){
 
-      console.log("email " + Arry[x]); 
+      console.log("email " + Arry[x]);
       console.log("role" + Arry[x+1]);
 
 	  var role = Arry[x+1];
 	  sendToApiAi(sender, role);
 
 
-    
+
 
     }else{
 		error++;
 		count.push(error);
      //   sendToApiAi(sender, "Existing Merchant");
 	 console.log(count);
-	 
-	
+
+
     }
 
-	
+
 
   }
 
@@ -1028,6 +1028,10 @@ function receivedPostback(event) {
 
 		 case "food":
 		 sendToApiAi(senderID, "Food");
+		 break;
+
+		 case "food_partners":
+		 sendToApiAi(senderID, "Food Partners");
 		 break;
 
 		 case "grocery":
