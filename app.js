@@ -258,12 +258,18 @@ Arry.push(line);
 
 lineReader.on('close', function (line) {
 
-var Ncount = 0;
-for(var x =0; x < Arry.length; x++){
-   if (Arry[x][0] == email){
+for(var i = 0; i < i.length; i += 2) {  // take every second element
+    ar.push(a[i]);
+}
 
-      console.log("wow");
 
+for(var x = 0; x < Arry.length; x+=1){
+//console.log(Arry[x]);
+   if (Arry[x] == 'patco@gmail.com'){
+
+      console.log("wow " + Arry[x]); 
+      console.log(Arry[x+1]);
+    
 
     }else{
         console.log('try again');
@@ -274,7 +280,6 @@ for(var x =0; x < Arry.length; x++){
 
 });
 console.log("after");
-
 
 }
 /*
