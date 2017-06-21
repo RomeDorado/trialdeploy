@@ -232,6 +232,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 			contexts[0].parameters['userEmail'] != "") ? contexts[0].parameters['userEmail'] : "";
 
 					 readDirectory(emailaddress);
+					 console.log(emailaddress + "EMAIL ITO");
 			
 			 }
 
