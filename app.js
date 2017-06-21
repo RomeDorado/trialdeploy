@@ -320,7 +320,7 @@ function handleApiAiResponse(sender, response) {
 	let parameters = response.result.parameters;
 
 	sendTypingOff(sender);
-		
+
 	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1) && action != "input.unknown"){
 		let timeoutInterval = 1100;
 		let previousType ;
@@ -718,7 +718,7 @@ request({
 		{
 			"content_type": "text",
 			"title": "I'm a merchant",
-			"payload":"I'm a merchat"
+			"payload":"I'm a merchant"
 
 		}
 
@@ -819,7 +819,7 @@ function receivedPostback(event) {
 	// The 'payload' param is a developer-defined field which is set in a postback
 	// button for Structured Messages.
 	var payload = event.postback.payload;
-	
+
 	switch (payload) {
 		 case "getStarted":
 		 sendToApiAi(senderID, "Get Started");
@@ -935,7 +935,35 @@ function receivedPostback(event) {
 		 break;
 
 		 case "go_toappref":
-		 sendToApiAi(senderid, "Go to App Now");
+		 sendToApiAi(senderID, "Go to App Now");
+		 break;
+
+		 case "consumer_choice":
+		 sendToApiAi(senderID, "Consumer Choice");
+		 break;
+
+		 case "food":
+		 sendToApiAi(senderID, "Food");
+		 break;
+
+		 case "grocery":
+		 sendToApiAi(senderID, "Grocery");
+		 break;
+
+		 case "serviceable_areas":
+		 sendToApiAi(senderID, "Serviceable Areas");
+		 break;
+
+		 case "grocery_serviceable":
+		 sendToApiAi(senderID, "Serviceable Areas");
+		 break;
+
+		 case "back_consumerfood":
+		 sendToApiAi(senderID, "Back_Food");
+		 break;
+
+		 case "back_consumergrocery":
+		 sendToApiAi(senderID, "Back_Grocery");
 		 break;
 
 		default:
