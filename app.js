@@ -9,6 +9,7 @@ const request = require('request');
 const app = express();
 const uuid = require('uuid');
 const async = require('async');
+const fs = require('fs');
 
 
 // Messenger API parameters
@@ -1113,6 +1114,9 @@ function sendEmail(subject, content) {
 });
 **/
 }
+
+var data = fs.readFileSync('./files/directory', 'utf8');
+console.log(data);
 
 function isDefined(obj) {
 	if (typeof obj == 'undefined') {
