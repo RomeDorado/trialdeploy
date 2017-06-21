@@ -252,7 +252,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 function readDirectory(sender, email){
 		console.log("before");
 		var Arry = [];
-		var lineReader = require('readline').createInterface({  
+		var lineReader = require('readline').createInterface({
 		input: require('fs').createReadStream('./files/directory')
 		});
 
@@ -274,9 +274,9 @@ function readDirectory(sender, email){
 		var count = [];
 		for(var x = 0; x < Arry.length; x+=1){
 		//console.log(Arry[x]);
-		if (Arry[x] == email){	
-			
-			console.log("email " + Arry[x]); 
+		if (Arry[x] == email){
+
+			console.log("email " + Arry[x]);
 			console.log("role" + Arry[x+1]);
 
 
@@ -291,9 +291,9 @@ function readDirectory(sender, email){
 				error++;
 				count.push(error);
 			//   sendToApiAi(sender, "Existing Merchant");
-			
-			
-			
+
+
+
 			}
 		}
 
@@ -1065,8 +1065,16 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Serviceable Areas");
 		 break;
 
-		 new "new_key":
+		 case "new_key":
 		 sendToApiAi(senderID, "Key");
+		 break;
+
+		 case "new_partner":
+		 sendToApiAi(senderID, "Partner");
+		 break;
+
+		 case "new_contactus":
+		 sendToApiAi(senderID, "Contact Us");
 		 break;
 
 		 case "back_newmerchant":
