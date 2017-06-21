@@ -280,10 +280,11 @@ for(var x = 0; x < Arry.length; x+=1){
 		error ++;
      //   sendToApiAi(sender, "Existing Merchant");
 	 console.log(error);
-    }
-	if(error > 0){
-		//sendToApiAi(sender, "Existing Merchant");
+	 if(error > 0){
+		sendToApiAi(sender, "Existing Merchant");
 	}
+    }
+	
 
   }
 
