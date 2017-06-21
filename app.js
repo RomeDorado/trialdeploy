@@ -248,67 +248,67 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
-function readDirectory(sender, email){
+		function readDirectory(sender, email){
 
-console.log("before");
-var Arry = [];
-var lineReader = require('readline').createInterface({  
-input: require('fs').createReadStream('./files/directory')
-});
+		console.log("before");
+		var Arry = [];
+		var lineReader = require('readline').createInterface({  
+		input: require('fs').createReadStream('./files/directory')
+		});
 
-lineReader.on('line', function (line) {
-Arry.push(line);
-});
+		lineReader.on('line', function (line) {
+		Arry.push(line);
+		});
 
-lineReader.on('close', function (line) {
+		lineReader.on('close', function (line) {
 
-for(var i = 0; i < i.length; i += 2) {  // take every second element
-    ar.push(a[i]);
-}
+		for(var i = 0; i < i.length; i += 2) {  // take every second element
+			ar.push(a[i]);
+		}
 
-var error = 0;
-var count = [];
-for(var x = 0; x < Arry.length; x+=1){
-//console.log(Arry[x]);
-   if (Arry[x] == email){
+		var error = 0;
+		var count = [];
+		for(var x = 0; x < Arry.length; x+=1){
+		//console.log(Arry[x]);
+		if (Arry[x] == email){
 
-      console.log("email " + Arry[x]); 
-      console.log("role" + Arry[x+1]);
+			console.log("email " + Arry[x]); 
+			console.log("role" + Arry[x+1]);
 
-	  var role = Arry[x+1];
-	  sendToApiAi(sender, role);
-
-
-    
-
-    }else{
-		error++;
-		count.push(error);
-     //   sendToApiAi(sender, "Existing Merchant");
-	 console.log(count);
-	 
-	
-    }
-
-	
-
-  }
-
-  if (count[0] != null) {
-		sendToApiAi(sender, "Existing Merchant");
-	}
+			var role = Arry[x+1];
+			sendToApiAi(sender, role);
 
 
-});
-console.log("after");
+			
 
-}
-/*
-var data = fs.readFileSync('./files/directory', 'utf8');
-var dir = [] = data.split(" ");
-var email_address = dir[0];
-var role = dir[1];
-*/
+			}else{
+				error++;
+				count.push(error);
+			//   sendToApiAi(sender, "Existing Merchant");
+			console.log(count);
+			
+			
+			}
+
+			
+
+		}
+
+		if (count[0] != null) {
+				sendToApiAi(sender, "Wrong");
+			}
+
+
+		});
+		console.log("after");
+
+		}
+		/*
+		var data = fs.readFileSync('./files/directory', 'utf8');
+		var dir = [] = data.split(" ");
+		var email_address = dir[0];
+		var role = dir[1];
+		*/
 
 
 
