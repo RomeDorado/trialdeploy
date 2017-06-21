@@ -1089,6 +1089,10 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Food Manual");
 		 break;
 
+		 case "back_existingfood":
+		 sendToApiAi(senderID, "Food");
+		 break;
+
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, "Can you be more specific?");
