@@ -586,7 +586,7 @@ function sendVideoMessage(recipientId, videoName) {
  * Send a video using the Send API.
  * example fileName: fileName"/assets/test.txt"
  */
-function sendFileMessage(recipientId, fileName) {
+function sendFileMessage(recipientId, fileURL) {
 	var messageData = {
 		recipient: {
 			id: recipientId
@@ -595,7 +595,7 @@ function sendFileMessage(recipientId, fileName) {
 			attachment: {
 				type: "file",
 				payload: {
-					url: config.SERVER_URL + fileName
+					url: fileURL
 				}
 			}
 		}
@@ -823,6 +823,23 @@ request({
 
 
 }
+function sendFoodPartner(sender, action, responseText, contexts, parameter){
+	request({
+		uri: 'https://graph.facebook.com/v2.7/' + sender,
+		qs: {
+			access_token: config.FB_PAGE_TOKEN
+		}
+	}, function(error, body, response){
+		if(!error && response.statusCode === 200){
+			let fileURL = "https://drive.google.com/uc?export=download&id=0B_Ll4VQbfip8MS1jTXJiMkFVZHc";
+			sendFileMessage(recipientId, fileURL);
+		}
+		else{
+			console.error(response.error);
+		}
+	})
+}
+
 function greetUserText(userId) {
 	//first read user firstname
 	request({
@@ -1079,6 +1096,10 @@ function receivedPostback(event) {
 
 		 case "back_newmerchant":
 		 sendToApiAi(senderID, "New Merchant");
+		 break;
+
+		 case "food_manual":
+		 sendFoodPartner(sender, action, responseText, contexts, parameter);
 		 break;
 
 		default:
