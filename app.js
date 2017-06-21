@@ -1062,6 +1062,10 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Serviceable Areas");
 		 break;
 
+		 new "new_key":
+		 sendToApiAi(senderID, "Key");
+		 break;
+
 		 case "back_newmerchant":
 		 sendToApiAi(senderID, "New Merchant");
 		 break;
