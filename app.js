@@ -717,7 +717,7 @@ request({
 		{
 			"content_type": "text",
 			"title": "I'm a merchant",
-			"payload":"I'm a merchat"
+			"payload":"I'm a merchant"
 
 		}
 
