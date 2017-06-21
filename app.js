@@ -286,7 +286,7 @@ for(var x = 0; x < Arry.length; x+=1){
 	
     }
 
-	if(!empty(count[])){
+	if(!empty(count)){
 		sendToApiAi(sender, "Existing Merchant");
 	}
 
