@@ -224,7 +224,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				},2000);
 		 break;
 
-		 case "enterEvent":	
+		 case "enterEmail":	
 			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
 			 || isDefined(contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
 			 || isDefined(contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
