@@ -823,7 +823,7 @@ request({
 
 
 }
-function sendFoodPartner(responseText, contexts, parameter){
+function sendFoodPartner(){
 	request({
 		uri: 'https://graph.facebook.com/v2.7/' + sender,
 		qs: {
@@ -1099,7 +1099,7 @@ function receivedPostback(event) {
 		 break;
 
 		 case "food_manual":
-		 sendFoodPartner(responseText, contexts, parameter);
+		 sendFoodPartner();
 		 break;
 
 		default:
