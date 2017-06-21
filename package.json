@@ -14,13 +14,15 @@
   "license": "ISC",
   "dependencies": {
     "apiai": "^2.0.5",
-    "sendgrid": "^4.2.0",
-    "mailgun-js":"latest",
+    "async": "latest",
+    "async-parallel": "latest",
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
+    "line-reader": "^0.4.0",
+    "line-reader-sync": "^0.1.0",
+    "mailgun-js": "latest",
     "request": "^2.72.0",
-    "uuid": "^2.0.3",
-    "async": "latest",
-    "async-parallel": "latest"
+    "sendgrid": "^4.2.0",
+    "uuid": "^2.0.3"
   }
 }

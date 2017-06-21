@@ -223,12 +223,67 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				consumerquickreply(sender, action, responseText, contexts);
 				},2000);
 		 break;
+
+		 case "enterEvent":	
+			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
+			 || isDefined(contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
+			 || isDefined(contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
+		 			let emailaddress = (isDefined(contexts[0].parameters['userEmail']) &&
+		 			contexts[0].parameters['userEmail'] != "") ? contexts[0].parameters['userEmail'] : "";
+
+					 readDirectory(emailaddress);
+			
+			 }
+
+		 break;
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
 
 	}
 }
+
+function readDirectory(email){
+
+console.log("before");
+var Arry = [];
+var lineReader = require('readline').createInterface({  
+input: require('fs').createReadStream('./files/directory')
+});
+
+lineReader.on('line', function (line) {
+Arry.push(line);
+});
+
+lineReader.on('close', function (line) {
+
+var Ncount = 0;
+for(var x =0; x < Arry.length; x++){
+   if (Arry[x] == email){
+
+      console.log("wow");
+
+
+    }else{
+        console.log('try again');
+    }
+
+  }
+
+
+});
+console.log("after");
+
+
+}
+/*
+var data = fs.readFileSync('./files/directory', 'utf8');
+var dir = [] = data.split(" ");
+var email_address = dir[0];
+var role = dir[1];
+*/
+
+
 
 function handleMessage(message, sender) {
 
@@ -1143,8 +1198,9 @@ function sendEmail(subject, content) {
 **/
 }
 
-var data = fs.readFileSync('./files/directory', 'utf8');
-console.log(data);
+
+
+console.log(email_address + " " + role);
 
 function isDefined(obj) {
 	if (typeof obj == 'undefined') {
