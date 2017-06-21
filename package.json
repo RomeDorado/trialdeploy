@@ -17,7 +17,7 @@
     "async": "latest",
     "async-parallel": "latest",
     "body-parser": "^1.15.1",
-    "express": "^4.13.4",
+    "express": "^4.15.3",
     "line-reader": "^0.4.0",
     "line-reader-sync": "^0.1.0",
     "mailgun-js": "latest",
