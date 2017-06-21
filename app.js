@@ -1054,6 +1054,18 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Back_Grocery");
 		 break;
 
+		 case "new_aboutus":
+		 sendToApiAi(senderID, "About Us");
+		 break;
+
+		 case "new_serviceableareas":
+		 sendToApiAi(senderID, "Serviceable Areas");
+		 break;
+
+		 case "back_newmerchant":
+		 sendToApiAi(senderID, "New Merchant");
+		 break;
+
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, "Can you be more specific?");
