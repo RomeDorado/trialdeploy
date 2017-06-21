@@ -224,7 +224,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				},2000);
 		 break;
 
-		 case "enterEmail":	
+		 case "enterEmail":
 		 //sendTextMessage(sender, "Enter your email: ");
 			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
 			 || isDefined(contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
@@ -234,11 +234,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 					 readDirectory(sender, emailaddress);
 					 console.log(emailaddress + "EMAIL ITO");
-			
+
 			 }
 
 			 sendTextMessage(sender, responseText);
-			 
+
 
 		 break;
 		default:
@@ -248,8 +248,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
-		function readDirectory(sender, email){
 
+function readDirectory(sender, email){
 		console.log("before");
 		var Arry = [];
 		var lineReader = require('readline').createInterface({  
@@ -260,7 +260,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		Arry.push(line);
 		});
 
-		lineReader.on('close', function (line) {
+
+	lineReader.on('close', function (line) {
+      console.log("email " + Arry[x]);
+      console.log("role" + Arry[x+1]);
+
 
 		for(var i = 0; i < i.length; i += 2) {  // take every second element
 			ar.push(a[i]);
@@ -275,11 +279,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			console.log("email " + Arry[x]); 
 			console.log("role" + Arry[x+1]);
 
+
 			var role = Arry[x+1];
 			sendToApiAi(sender, role);
 
 
 			break;
+
 
 			}else{
 				error++;
@@ -1027,6 +1033,10 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Food");
 		 break;
 
+		 case "food_partners":
+		 sendToApiAi(senderID, "Food Partners");
+		 break;
+
 		 case "grocery":
 		 sendToApiAi(senderID, "Grocery");
 		 break;
@@ -1045,6 +1055,18 @@ function receivedPostback(event) {
 
 		 case "back_consumergrocery":
 		 sendToApiAi(senderID, "Back_Grocery");
+		 break;
+
+		 case "new_aboutus":
+		 sendToApiAi(senderID, "About Us");
+		 break;
+
+		 case "new_serviceableareas":
+		 sendToApiAi(senderID, "Serviceable Areas");
+		 break;
+
+		 case "back_newmerchant":
+		 sendToApiAi(senderID, "New Merchant");
 		 break;
 
 		default:
