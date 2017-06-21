@@ -260,7 +260,7 @@ lineReader.on('close', function (line) {
 
 var Ncount = 0;
 for(var x =0; x < Arry.length; x++){
-   if (Arry[x] == email){
+   if (Arry[x][0] == email){
 
       console.log("wow");
 
