@@ -286,11 +286,13 @@ for(var x = 0; x < Arry.length; x+=1){
 	
     }
 
-	if (count[0] != null) {
-		sendToApiAi(sender, "Existing Merchant");
-	}
+	
 
   }
+
+  if (count[0] != null) {
+		sendToApiAi(sender, "Existing Merchant");
+	}
 
 
 });
