@@ -827,13 +827,13 @@ request({
 
 
 function sendBackCard(button, element){
-	let button = {
+	button = {
 		"type": "postback",
 		"title": "Back",
 		"payload": "back_existingfood"
 	}
 	buttons.push(button);
-	let element = {
+	element = {
 		"title": "Back",
 		"buttons": buttons
 	}
