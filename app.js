@@ -414,7 +414,6 @@ function handleApiAiResponse(sender, response) {
 		let previousType ;
 		let cardTypes = [];
 		let timeout = 0;
-		console.log("this is shit" + action);
 
 		handleApiAiAction(sender, action, responseText, contexts, parameters);
 		for (var i = 0; i < messages.length; i++) {
@@ -914,21 +913,21 @@ function receivedPostback(event) {
 	// The 'payload' param is a developer-defined field which is set in a postback
 	// button for Structured Messages.
 	var payload = event.postback.payload;
-
-	let buttons = [];
-	let elements = [];
-	let button;
-	button = {
-		"type": "postback",
-		"title": "Back",
-		"payload": "back_existingfood"
-	}
-	buttons.push(button);
-	let element = {
-		"title": "Back",
-		"buttons": buttons
-	}
-	elements.push(element);
+	// 
+	// let buttons = [];
+	// let elements = [];
+	// let button;
+	// button = {
+	// 	"type": "postback",
+	// 	"title": "Back",
+	// 	"payload": "back_existingfood"
+	// }
+	// buttons.push(button);
+	// let element = {
+	// 	"title": "Back",
+	// 	"buttons": buttons
+	// }
+	// elements.push(element);
 
 	switch (payload) {
 		 case "getStarted":
@@ -1114,9 +1113,6 @@ function receivedPostback(event) {
 
 		 case "tutorial":
 		 sendToApiAi(senderID, "Tutorial");
-		 setTimeout(function(){
-				 sendGenericMessage(senderID, elements);
-			 },30000);
 		 break;
 
 		 case "back_existingfood":
