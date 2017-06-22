@@ -827,17 +827,6 @@ request({
 
 
 function sendBackCard(button, element){
-	button = {
-		"type": "postback",
-		"title": "Back",
-		"payload": "back_existingfood"
-	}
-	buttons.push(button);
-	element = {
-		"title": "Back",
-		"buttons": buttons
-	}
-	elements.push(element);
 
 	sendGenericMessage(recipientID, elements)
 }
@@ -925,6 +914,20 @@ function receivedPostback(event) {
 	// The 'payload' param is a developer-defined field which is set in a postback
 	// button for Structured Messages.
 	var payload = event.postback.payload;
+
+	let buttons = [];
+	let elements = [];
+	button = {
+		"type": "postback",
+		"title": "Back",
+		"payload": "back_existingfood"
+	}
+	buttons.push(button);
+	element = {
+		"title": "Back",
+		"buttons": buttons
+	}
+	elements.push(element);
 
 	switch (payload) {
 		 case "getStarted":
@@ -1111,7 +1114,7 @@ function receivedPostback(event) {
 		 case "tutorial":
 		 sendToApiAi(senderID, "Tutorial");
 		 setTimeout(function(){
-				 sendBackCard();
+				 sendGenericMessage(sender, elements);
 			 },30000);
 		 break;
 
