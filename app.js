@@ -1115,7 +1115,7 @@ function receivedPostback(event) {
 		 case "tutorial":
 		 sendToApiAi(senderID, "Tutorial");
 		 setTimeout(function(){
-				 sendGenericMessage(sender, elements);
+				 sendGenericMessage(senderID, elements);
 			 },30000);
 		 break;
 
