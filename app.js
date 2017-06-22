@@ -1099,6 +1099,7 @@ function receivedPostback(event) {
 
 		 case "back_existinggrocery":
 		 sendToApiAi(senderID, "Grocery");
+		 break;
 
 		default:
 			//unindentified payload
