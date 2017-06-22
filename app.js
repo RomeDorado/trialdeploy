@@ -1109,8 +1109,10 @@ function receivedPostback(event) {
 		 break;
 
 		 case "tutorial":
-		 sendBackCard();
 		 sendToApiAi(senderID, "Tutorial");
+		 setTimeout(function(){
+				 sendBackCard();
+			 },30000);
 		 break;
 
 		 case "back_existingfood":
