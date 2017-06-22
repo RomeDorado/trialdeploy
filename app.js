@@ -917,13 +917,13 @@ function receivedPostback(event) {
 
 	let buttons = [];
 	let elements = [];
-	button = {
+	let button = {
 		"type": "postback",
 		"title": "Back",
 		"payload": "back_existingfood"
 	}
 	buttons.push(button);
-	element = {
+	let element = {
 		"title": "Back",
 		"buttons": buttons
 	}
