@@ -1085,17 +1085,20 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "New Merchant");
 		 break;
 
-		 case "food_manual":
-		 sendToApiAi(senderID, "Food Manual");
+		 case "manual":
+		 sendToApiAi(senderID, "Manual");
 		 break;
 
-		 case "food_tutorial":
-		 sendToApiAi(senderID, "Food Tutorial");
+		 case "tutorial":
+		 sendToApiAi(senderID, "Tutorial");
 		 break;
 
 		 case "back_existingfood":
 		 sendToApiAi(senderID, "Food");
 		 break;
+
+		 case "back_existinggrocery":
+		 sendToApiAi(senderID, "Grocery");
 
 		default:
 			//unindentified payload
