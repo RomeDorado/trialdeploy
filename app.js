@@ -917,7 +917,8 @@ function receivedPostback(event) {
 
 	let buttons = [];
 	let elements = [];
-	let button = {
+	let button;
+	button = {
 		"type": "postback",
 		"title": "Back",
 		"payload": "back_existingfood"
