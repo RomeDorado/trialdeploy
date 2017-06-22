@@ -1089,6 +1089,10 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Food Manual");
 		 break;
 
+		 case "food_tutorial":
+		 sendToApiAi(senderID, "Food Tutorial");
+		 break;
+
 		 case "back_existingfood":
 		 sendToApiAi(senderID, "Food");
 		 break;
