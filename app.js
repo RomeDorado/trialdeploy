@@ -270,7 +270,7 @@ function readDirectory(sender, email){
 			ar.push(a[i]);
 		}
 
-		var error = 0;
+		var error = true;
 		var count = [];
 		for(var x = 0; x < Arry.length; x+=1){
 		//console.log(Arry[x]);
@@ -281,6 +281,7 @@ function readDirectory(sender, email){
 
 
 			var role = Arry[x+1];
+			error = false;
 			sendToApiAi(sender, role);
 
 
@@ -288,8 +289,7 @@ function readDirectory(sender, email){
 
 
 			}else{
-				error++;
-				count.push(error);
+				error = true;
 			//   sendToApiAi(sender, "Existing Merchant");
 
 
@@ -297,8 +297,8 @@ function readDirectory(sender, email){
 			}
 		}
 
-		if (count[0] != null) {
-				console.log(JSON.stringify(count) + "this is the count");
+		if (error == true) {
+				// console.log(JSON.stringify(count) + "this is the count");
 				sendToApiAi(sender, "Existing Merchant");
 			}
 
