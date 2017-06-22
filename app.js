@@ -306,7 +306,8 @@ function readDirectory(sender, email){
 		});
 		console.log("after");
 
-		}
+}
+
 		/*
 		var data = fs.readFileSync('./files/directory', 'utf8');
 		var dir = [] = data.split(" ");
@@ -823,6 +824,24 @@ request({
 
 
 }
+
+
+function sendBackCard(button, element){
+	let button = {
+		"type": "postback",
+		"title": "Back",
+		"payload": "back_existingfood"
+	}
+	buttons.push(button);
+	let element = {
+		"title": "Back",
+		"buttons": buttons
+	}
+	elements.push(element);
+
+	sendGenericMessage(recipientID, elements)
+}
+
 function greetUserText(userId) {
 	//first read user firstname
 	request({
@@ -1090,6 +1109,7 @@ function receivedPostback(event) {
 		 break;
 
 		 case "tutorial":
+		 sendBackCard();
 		 sendToApiAi(senderID, "Tutorial");
 		 break;
 
