@@ -226,7 +226,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		 case "enterEmail":
 		 //sendTextMessage(sender, "Enter your email: ");
-			if((contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
+		/*	if((contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
 			 || (contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
 			 || (contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
 		 			let emailaddress = ((contexts[0].parameters['userEmail']) &&
@@ -239,6 +239,17 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 			 sendTextMessage(sender, responseText);
 
+		*/
+			var cont = contexts.map(function(obj) { 
+				var contextObj = {};
+				if(obj.name === "merchant-existing"){
+					let emailaddress = obj.parameters['userEmail'];
+					readDirectory(sender, emailaddress);
+					console.log(emailaddress + "EMAIL ITO");
+				}
+			sendTextMessage(sender, responseText);
+			return contextObj;
+		});
 
 		 break;
 		default:
