@@ -246,10 +246,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					let emailaddress = obj.parameters['userEmail'];
 					readDirectory(sender, emailaddress);
 					console.log(emailaddress + "EMAIL ITO");
-				}
-			sendTextMessage(sender, responseText);
+				}						
 			return contextObj;
 		});
+		sendTextMessage(sender, responseText);
 
 		 break;
 		default:
