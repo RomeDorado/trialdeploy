@@ -251,7 +251,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 function readDirectory(sender, email){		
 		var Arry = [];
-		var lineReader = require('readline').createInterface({  
+		var lineReader = require('readline').createInterface({
 		input: require('fs').createReadStream('./files/directory')
 		});
 
@@ -269,17 +269,18 @@ function readDirectory(sender, email){
 			ar.push(a[i]);
 		}
 
-		var error = 0;
+		var error = true;
 		var count = [];
 		for(var x = 0; x < Arry.length; x+=1){
 		//console.log(Arry[x]);
-		if (Arry[x] == email){	
-			
-			console.log("email " + Arry[x]); 
+		if (Arry[x] == email){
+
+			console.log("email " + Arry[x]);
 			console.log("role" + Arry[x+1]);
 
 
 			var role = Arry[x+1];
+			error = false;
 			sendToApiAi(sender, role);
 
 
@@ -287,24 +288,24 @@ function readDirectory(sender, email){
 
 
 			}else{
-				error++;
-				count.push(error);
+				error = true;
 			//   sendToApiAi(sender, "Existing Merchant");
-			
-			
-			
+
+
+
 			}
 		}
 
-		if (count[0] != null) {
-				console.log(JSON.stringify(count) + "this is the count");
+		if (error == true) {
+				// console.log(JSON.stringify(count) + "this is the count");
 				sendToApiAi(sender, "Existing Merchant");
 			}
 
 
 		});		
 
-		}
+}
+
 		/*
 		var data = fs.readFileSync('./files/directory', 'utf8');
 		var dir = [] = data.split(" ");
@@ -411,7 +412,6 @@ function handleApiAiResponse(sender, response) {
 		let previousType ;
 		let cardTypes = [];
 		let timeout = 0;
-		console.log("this is shit" + action);
 
 		handleApiAiAction(sender, action, responseText, contexts, parameters);
 		for (var i = 0; i < messages.length; i++) {
@@ -821,6 +821,13 @@ request({
 
 
 }
+
+
+function sendBackCard(button, element){
+
+	sendGenericMessage(recipientID, elements)
+}
+
 function greetUserText(userId) {
 	//first read user firstname
 	request({
@@ -904,6 +911,21 @@ function receivedPostback(event) {
 	// The 'payload' param is a developer-defined field which is set in a postback
 	// button for Structured Messages.
 	var payload = event.postback.payload;
+	// 
+	// let buttons = [];
+	// let elements = [];
+	// let button;
+	// button = {
+	// 	"type": "postback",
+	// 	"title": "Back",
+	// 	"payload": "back_existingfood"
+	// }
+	// buttons.push(button);
+	// let element = {
+	// 	"title": "Back",
+	// 	"buttons": buttons
+	// }
+	// elements.push(element);
 
 	switch (payload) {
 		 case "getStarted":
@@ -1047,6 +1069,10 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Serviceable Areas");
 		 break;
 
+		 case "grocery_partners":
+		 sendToApiAi(senderID, "Grocery Partners");
+		 break;
+
 		 case "back_consumerfood":
 		 sendToApiAi(senderID, "Back_Food");
 		 break;
@@ -1063,8 +1089,36 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Serviceable Areas");
 		 break;
 
+		 case "new_key":
+		 sendToApiAi(senderID, "Key");
+		 break;
+
+		 case "new_partner":
+		 sendToApiAi(senderID, "Partner");
+		 break;
+
+		 case "new_contactus":
+		 sendToApiAi(senderID, "Contact Us");
+		 break;
+
 		 case "back_newmerchant":
 		 sendToApiAi(senderID, "New Merchant");
+		 break;
+
+		 case "manual":
+		 sendToApiAi(senderID, "Manual");
+		 break;
+
+		 case "tutorial":
+		 sendToApiAi(senderID, "Tutorial");
+		 break;
+
+		 case "back_existingfood":
+		 sendToApiAi(senderID, "Food");
+		 break;
+
+		 case "back_existinggrocery":
+		 sendToApiAi(senderID, "Grocery");
 		 break;
 
 		default:
