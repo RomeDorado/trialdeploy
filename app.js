@@ -226,9 +226,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		 case "enterEmail":
 		 //sendTextMessage(sender, "Enter your email: ");
-			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
-			 || isDefined(contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
-			 || isDefined(contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
+			if((contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
+			 || (contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
+			 || (contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
 		 			let emailaddress = ((contexts[0].parameters['userEmail']) &&
 		 			contexts[0].parameters['userEmail'] != "") ? contexts[0].parameters['userEmail'] : "";
 
