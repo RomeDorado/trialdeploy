@@ -229,8 +229,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
 			 || isDefined(contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
 			 || isDefined(contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
-		 			let emailaddress = (isDefined(contexts[2].parameters['userEmail']) &&
-		 			contexts[2].parameters['userEmail'] != "") ? contexts[2].parameters['userEmail'] : "";
+		 			let emailaddress = (isDefined(contexts[0].parameters['userEmail']) &&
+		 			contexts[0].parameters['userEmail'] != "") ? contexts[0].parameters['userEmail'] : "";
 
 					 readDirectory(sender, emailaddress);
 					 console.log(emailaddress + "EMAIL ITO");
