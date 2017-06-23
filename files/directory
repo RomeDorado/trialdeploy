@@ -1,12 +1,5 @@
 food@sample.com
 role_food
 grocery@sample.com
-<<<<<<< HEAD
-=======
 role_grocery
-cat
-food1@sample.com
-role_food
-grocery1@sample.com
->>>>>>> cec2f090c39f6340bca621a8a6f899fe41ba7563
-role_grocery
+
