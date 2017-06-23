@@ -226,6 +226,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		 case "enterEmail":
 		 //sendTextMessage(sender, "Enter your email: ");
+		/*	if((contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
+			 || (contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
+			 || (contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
+		 			let emailaddress = ((contexts[0].parameters['userEmail']) &&
 		 console.log("enterEmail Action");
 			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
 			 || isDefined(contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
@@ -235,10 +239,22 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					 console.log(emailaddress + "EMAIL ITO");
 					 readDirectory(sender, emailaddress);
 
+
 			 }
 
 			 sendTextMessage(sender, responseText);
 
+		*/
+			var cont = contexts.map(function(obj) {
+				var contextObj = {};
+				if(obj.name === "merchant-existing"){
+					let emailaddress = obj.parameters['userEmail'];
+					readDirectory(sender, emailaddress);
+					console.log(emailaddress + "EMAIL ITO");
+				}
+			return contextObj;
+		});
+		sendTextMessage(sender, responseText);
 
 		 break;
 		default:
@@ -265,9 +281,6 @@ function readDirectory(sender, email){
       console.log("role" + Arry[x+1]);
 
 
-		for(var i = 0; i < i.length; i += 2) {  // take every second element
-			ar.push(a[i]);
-		}
 
 		var error = true;
 		var count = [];
