@@ -200,8 +200,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters
 			 || isDefined(contexts[1]) && contexts[1].name == "feedback" && contexts[1].parameters
 			 || isDefined(contexts[2]) && contexts[2].name == "feedback" && contexts[2].parameters){
-		 			let feedback_Message = (isDefined(contexts[0].parameters['feedbackMessage']) &&
-		 			contexts[0].parameters['feedbackMessage'] != "") ? contexts[0].parameters['feedbackMessage'] : "";
+		 			let feedback_Message = (isDefined(contexts[2].parameters['feedbackMessage']) &&
+		 			contexts[2].parameters['feedbackMessage'] != "") ? contexts[2].parameters['feedbackMessage'] : "";
 
 		 			if(feedback_Message != ""){
 		 				let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
@@ -249,8 +249,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 }
 
 
-function readDirectory(sender, email){
-		console.log("before");
+function readDirectory(sender, email){		
 		var Arry = [];
 		var lineReader = require('readline').createInterface({
 		input: require('fs').createReadStream('./files/directory')
@@ -284,8 +283,9 @@ function readDirectory(sender, email){
 			error = false;
 			sendToApiAi(sender, role);
 
-
+			Arry = [];
 			break;
+
 
 
 			}else{
@@ -303,8 +303,7 @@ function readDirectory(sender, email){
 			}
 
 
-		});
-		console.log("after");
+		});		
 
 }
 
