@@ -283,8 +283,9 @@ function readDirectory(sender, email){
 			error = false;
 			sendToApiAi(sender, role);
 
-
+			Arry = [];
 			break;
+
 
 
 			}else{
