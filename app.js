@@ -230,10 +230,15 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			 || (contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
 			 || (contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
 		 			let emailaddress = ((contexts[0].parameters['userEmail']) &&
+		 console.log("enterEmail Action");
+			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
+			 || isDefined(contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
+			 || isDefined(contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
+		 			let emailaddress = (isDefined(contexts[0].parameters['userEmail']) &&
 		 			contexts[0].parameters['userEmail'] != "") ? contexts[0].parameters['userEmail'] : "";
-
-					 readDirectory(sender, emailaddress);
 					 console.log(emailaddress + "EMAIL ITO");
+					 readDirectory(sender, emailaddress);
+
 
 			 }
 
@@ -260,7 +265,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 }
 
 
-function readDirectory(sender, email){		
+function readDirectory(sender, email){
 		var Arry = [];
 		var lineReader = require('readline').createInterface({
 		input: require('fs').createReadStream('./files/directory')
@@ -311,7 +316,7 @@ function readDirectory(sender, email){
 			}
 
 
-		});		
+		});
 
 }
 
@@ -920,7 +925,7 @@ function receivedPostback(event) {
 	// The 'payload' param is a developer-defined field which is set in a postback
 	// button for Structured Messages.
 	var payload = event.postback.payload;
-	// 
+	//
 	// let buttons = [];
 	// let elements = [];
 	// let button;
