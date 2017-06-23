@@ -231,9 +231,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			 || isDefined(contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
 		 			let emailaddress = (isDefined(contexts[0].parameters['userEmail']) &&
 		 			contexts[0].parameters['userEmail'] != "") ? contexts[0].parameters['userEmail'] : "";
-
-					 readDirectory(sender, emailaddress);
 					 console.log(emailaddress + "EMAIL ITO");
+					 readDirectory(sender, emailaddress);
+
 
 			 }
 
@@ -913,7 +913,7 @@ function receivedPostback(event) {
 	// The 'payload' param is a developer-defined field which is set in a postback
 	// button for Structured Messages.
 	var payload = event.postback.payload;
-	// 
+	//
 	// let buttons = [];
 	// let elements = [];
 	// let button;
