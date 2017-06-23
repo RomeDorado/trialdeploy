@@ -229,7 +229,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
 			 || isDefined(contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
 			 || isDefined(contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
-		 			let emailaddress = (isDefined(contexts[0].parameters['userEmail']) &&
+		 			let emailaddress = ((contexts[0].parameters['userEmail']) &&
 		 			contexts[0].parameters['userEmail'] != "") ? contexts[0].parameters['userEmail'] : "";
 
 					 readDirectory(sender, emailaddress);
@@ -264,10 +264,7 @@ function readDirectory(sender, email){
       console.log("email " + Arry[x]);
       console.log("role" + Arry[x+1]);
 
-
-		for(var i = 0; i < i.length; i += 2) {  // take every second element
-			ar.push(a[i]);
-		}
+		
 
 		var error = true;
 		var count = [];
