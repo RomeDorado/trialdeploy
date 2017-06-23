@@ -226,6 +226,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		 case "enterEmail":
 		 //sendTextMessage(sender, "Enter your email: ");
+		 console.log("enterEmail Action");
 			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
 			 || isDefined(contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
 			 || isDefined(contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
@@ -249,7 +250,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 }
 
 
-function readDirectory(sender, email){		
+function readDirectory(sender, email){
 		var Arry = [];
 		var lineReader = require('readline').createInterface({
 		input: require('fs').createReadStream('./files/directory')
@@ -303,7 +304,7 @@ function readDirectory(sender, email){
 			}
 
 
-		});		
+		});
 
 }
 
