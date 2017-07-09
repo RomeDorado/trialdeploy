@@ -1251,8 +1251,9 @@ function sendEmail(subject, content) {
 	console.log(body);
 	if(!error){
 		console.log("NO ERROR SENDING EMAIL!");
-	}
+		}
 	});
+}	
 
 
 function isDefined(obj) {
