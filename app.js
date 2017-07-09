@@ -197,6 +197,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 
 		 case "feedback-action":
+		 /*
 		 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters
 			 || isDefined(contexts[1]) && contexts[1].name == "feedback" && contexts[1].parameters
 			 || isDefined(contexts[2]) && contexts[2].name == "feedback" && contexts[2].parameters){
@@ -212,6 +213,15 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 						console.log("This is NOT working!!!!!");
 					 }
 		 	}
+*/
+			 let cont = contexts.map(function(obj) {
+				let contextObj = {};
+				if(obj.name === "feedback"){
+					let emailContent = obj.parameters['feedbackMessage'];
+					sendEmail("New Feedback", emailContent);					
+				}
+			return contextObj;
+		});
 		 	sendTextMessage(sender, responseText);
 
 			console.log(responseText);
@@ -1241,9 +1251,9 @@ function sendEmail(subject, content) {
 	var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 	var data = {
-	from: 'Inquiry <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
+	from: 'Feedback <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
 	to: 'romedorado@gmail.com',
-	subject: 'Inquiry from users',
+	subject: 'Feedback from users',
 	text: content
 	};
 
