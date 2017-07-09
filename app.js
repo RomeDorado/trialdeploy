@@ -214,13 +214,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					 }
 		 	}
 */
-			 let cont = contexts.map(function(obj) {
-				let contextObj = {};
+			 let conte = contexts.map(function(obj) {
+				let contextObject = {};
 				if(obj.name === "feedback"){
 					let emailContent = obj.parameters['feedbackMessage'];
 					sendEmail("New Feedback", emailContent);					
 				}
-			return contextObj;
+			return contextObject;
 		});
 		 	sendTextMessage(sender, responseText);
 
