@@ -224,27 +224,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				},2000);
 		 break;
 
-		 case "enterEmail":
-		 //sendTextMessage(sender, "Enter your email: ");
-		/*	if((contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
-			 || (contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
-			 || (contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
-		 			let emailaddress = ((contexts[0].parameters['userEmail']) &&
-		 console.log("enterEmail Action");
-			if(isDefined(contexts[0]) && contexts[0].name == "merchant-existing" && contexts[0].parameters
-			 || isDefined(contexts[1]) && contexts[1].name == "merchant-existing" && contexts[1].parameters
-			 || isDefined(contexts[2]) && contexts[2].name == "merchant-existing" && contexts[2].parameters){
-		 			let emailaddress = (isDefined(contexts[0].parameters['userEmail']) &&
-		 			contexts[0].parameters['userEmail'] != "") ? contexts[0].parameters['userEmail'] : "";
-					 console.log(emailaddress + "EMAIL ITO");
-					 readDirectory(sender, emailaddress);
-
-
-			 }
-
-			 sendTextMessage(sender, responseText);
-
-		*/
+		 case "enterEmail":	
 			var cont = contexts.map(function(obj) {
 				var contextObj = {};
 				if(obj.name === "merchant-existing"){
@@ -299,13 +279,9 @@ function readDirectory(sender, email){
 			Arry = [];
 			break;
 
-
-
 			}else{
 				error = true;
 			//   sendToApiAi(sender, "Existing Merchant");
-
-
 
 			}
 		}
@@ -319,15 +295,6 @@ function readDirectory(sender, email){
 		});
 
 }
-
-		/*
-		var data = fs.readFileSync('./files/directory', 'utf8');
-		var dir = [] = data.split(" ");
-		var email_address = dir[0];
-		var role = dir[1];
-		*/
-
-
 
 function handleMessage(message, sender) {
 
@@ -807,7 +774,7 @@ request({
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
 
-				txtmessage = "Hi " + user.first_name + '! I\'m HonestBee bot, your all-in-one personal concierge and delivery app. 🐝  To continue, are you a consumer or a merchant?”';
+				txtmessage = "Hi " + user.first_name + '! I\'m honestbee bot, your all-in-one personal concierge and delivery app. 🐝  To continue, are you a consumer or a merchant?”';
 				let replies = [
 		{
 			"content_type": "text",
@@ -860,7 +827,7 @@ function greetUserText(userId) {
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
 
-				sendTextMessage(userId, "Hi " + user.first_name + '! I\'m HonestBee bot, your one-stop platform for an easier, more productive life 🐝  To continue, are you an HonestBee consumer or are you an HonestBee merchant?');
+				sendTextMessage(userId, "Hi " + user.first_name + '! I\'m honestbee bot, your one-stop platform for an easier, more productive life 🐝  To continue, are you an honestbee consumer or are you an honestbee merchant?');
 			} else {
 				console.log("Cannot get data for fb user with id",
 					userId);
@@ -925,27 +892,12 @@ function receivedPostback(event) {
 	// The 'payload' param is a developer-defined field which is set in a postback
 	// button for Structured Messages.
 	var payload = event.postback.payload;
-	//
-	// let buttons = [];
-	// let elements = [];
-	// let button;
-	// button = {
-	// 	"type": "postback",
-	// 	"title": "Back",
-	// 	"payload": "back_existingfood"
-	// }
-	// buttons.push(button);
-	// let element = {
-	// 	"title": "Back",
-	// 	"buttons": buttons
-	// }
-	// elements.push(element);
+
 
 	switch (payload) {
 		 case "getStarted":
 		 sendToApiAi(senderID, "Get Started");
-		 //greetUserText(sender);
-		 //greet(senderID, response);
+
 		 break;
 
 		 case "Return_bot":
@@ -1289,9 +1241,9 @@ function sendEmail(subject, content) {
 	var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 	var data = {
-	from: 'Feedbacks <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
+	from: 'Inquiry <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
 	to: 'romedorado@gmail.com',
-	subject: 'Feedback from users',
+	subject: 'Inquiry from users',
 	text: content
 	};
 
@@ -1301,34 +1253,7 @@ function sendEmail(subject, content) {
 		console.log("NO ERROR SENDING EMAIL!");
 	}
 	});
-	/**var helper = require('sendgrid').mail;
-	var fromEmail = new helper.Email(config.EMAIL_FROM);
-	var toEmail = new helper.Email(config.EMAIL_TO);
-	var subject = 'Feedback from users';
-	var content = new helper.Content('text/html', content);
-	var mail = new helper.Mail(fromEmail, subject, toEmail, content);
-
-	var sg = require('sendgrid')(config.SENDGRID_API_KEY);
-	var request = sg.emptyRequest({
-	method: 'POST',
-	path: '/v3/mail/send',
-	body: mail.toJSON()
-	});
-
-	sg.API(request, function (error, response) {
-	if (error) {
-		console.log('Error response received');
-	}
-	console.log(response.statusCode);
-	console.log(response.body);
-	console.log(response.headers);
-});
-**/
-}
-
-
-
-//console.log(email_address + " " + role);
+	
 
 function isDefined(obj) {
 	if (typeof obj == 'undefined') {
