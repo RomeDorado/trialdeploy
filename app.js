@@ -224,7 +224,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				},2000);
 		 break;
 
-		 case "enterEmail":	
+		 case "enterEmail":
 			var cont = contexts.map(function(obj) {
 				var contextObj = {};
 				if(obj.name === "merchant-existing"){
@@ -1253,7 +1253,7 @@ function sendEmail(subject, content) {
 		console.log("NO ERROR SENDING EMAIL!");
 	}
 	});
-	
+
 
 function isDefined(obj) {
 	if (typeof obj == 'undefined') {
@@ -1271,4 +1271,4 @@ function isDefined(obj) {
 // Spin up the server
 app.listen(app.get('port'), function () {
 	console.log('running on port', app.get('port'))
-})
+});
