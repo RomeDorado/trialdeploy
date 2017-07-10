@@ -904,6 +904,9 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Restart Bot");
 		 break;
 
+		 case 'mostfaq':
+		 sendToApiAi(senderID, "Most Asked");
+		 break;
 
 		 case "feed_back":
 		 sendToApiAi(senderID, "Feedback");
@@ -1253,7 +1256,7 @@ function sendEmail(subject, content) {
 		console.log("NO ERROR SENDING EMAIL!");
 		}
 	});
-}	
+}
 
 
 function isDefined(obj) {
