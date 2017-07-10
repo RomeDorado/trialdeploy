@@ -1109,6 +1109,9 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Contact Us");
 		 break;
 
+		 case "mostfaq":
+		 sendToApiAi(senderID, "Most Asked");
+		 break;
 
 
 		default:
