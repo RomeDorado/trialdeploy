@@ -218,7 +218,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				let contextObj = {};
 				if(obj.name === "feedback"){
 					let emailContent = obj.parameters['feedbackMessage'];
-					sendEmail("New Feedback", emailContent);					
+					sendEmail("New Feedback", emailContent);
 				}
 			return contextObj;
 		});
