@@ -1284,8 +1284,8 @@ function sendEmail(subject, content, name) {
 
 	var data = {
 	from: 'Feedback <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
-	to: 'romedorado@gmail.com',
-	cc: 'ics133ust@gmail.com',
+	to: 'migz.delgallego@honestbee.com',
+	cc: 'marlo.lucio@honestbee.com',
 	subject: `Feedback from ${name}`,
 	text: content
 	};
