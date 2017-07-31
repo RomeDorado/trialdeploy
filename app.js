@@ -207,7 +207,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 			var user = JSON.parse(body);
 
-			clientName = user.first_name;
+			clientName = user.first_name + ` ${user.last_name}`;
 
 		}
 	});
@@ -1279,6 +1279,7 @@ function sendEmail(subject, content, name) {
 	var data = {
 	from: 'Feedback <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
 	to: 'romedorado@gmail.com',
+	cc: 'ics133ust@gmail.com',
 	subject: `Feedback from ${name}`,
 	text: content
 	};
@@ -1298,8 +1299,9 @@ function sendEmailInquiry(subject, content, name) {
 	var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 	var data = {
-	from: 'Feedback <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
+	from: 'Inquiries <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
 	to: 'romedorado@gmail.com',
+	cc: 'ics133ust@gmail.com',
 	subject: `Inquiry from ${name}`,
 	text: content
 	};
