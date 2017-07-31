@@ -1283,7 +1283,7 @@ function sendEmail(subject, content, name) {
 	subject: `Feedback from ${name}`,
 	text: content
 	};
-
+//
 	mailgun.messages().send(data, function (error, body) {
 	console.log(body);
 	if(!error){
