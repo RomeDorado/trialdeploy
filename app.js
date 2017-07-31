@@ -808,6 +808,12 @@ request({
 			"title": "I'm a merchant",
 			"payload":"I'm a merchant"
 
+		},
+		{
+			"content_type": "text",
+			"title": "I'm a rider",
+			"payload":"I'm a rider"
+
 		}
 
 		];
