@@ -177,7 +177,7 @@ function receivedMessage(event) {
 
 function handleMessageAttachments(messageAttachments, senderID){
 	//for now just reply
-	sendTextMessage(senderID, "Attachment received. Thank you.");
+	//sendTextMessage(senderID, "Attachment received. Thank you.");
 }
 
 function handleQuickReply(senderID, quickReply, messageId) {
@@ -195,25 +195,19 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
+		case "send-message":
+		let contex = contexts.map(function(obj) {
+				let contextObjects = {};
+				if(obj.name === "sendmsg"){
+					let emailContents = obj.parameters['userMessage'];
+					sendEmailInquiry("New Inquiry", emailContents);
+				}
+			return contextObjects;
+		});
+		 	sendTextMessage(sender, responseText);
+		break;
 
-		 case "feedback-action":
-		 /*
-		 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters
-			 || isDefined(contexts[1]) && contexts[1].name == "feedback" && contexts[1].parameters
-			 || isDefined(contexts[2]) && contexts[2].name == "feedback" && contexts[2].parameters){
-		 			let feedback_Message = (isDefined(contexts[2].parameters['feedbackMessage']) &&
-		 			contexts[2].parameters['feedbackMessage'] != "") ? contexts[2].parameters['feedbackMessage'] : "";
-
-		 			if(feedback_Message != ""){
-		 				let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
-
-		 				sendEmail("New Feedback", emailContent);
-						 console.log("This is working!!!!!");
-		 			}else{
-						console.log("This is NOT working!!!!!");
-					 }
-		 	}
-*/
+		 case "feedback-action":		 
 			 let conte = contexts.map(function(obj) {
 				let contextObject = {};
 				if(obj.name === "feedback"){
@@ -1271,6 +1265,26 @@ function sendEmail(subject, content) {
 	});
 }
 
+function sendEmailInquiry(subject, content) {
+
+	var api_key = 'key-2cc6875066bce7da401337300237471d';
+	var domain = 'sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org';
+	var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+
+	var data = {
+	from: 'Feedback <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
+	to: 'romedorado@gmail.com',
+	subject: 'Inquiry from users',
+	text: content
+	};
+
+	mailgun.messages().send(data, function (error, body) {
+	console.log(body);
+	if(!error){
+		console.log("NO ERROR SENDING EMAIL!");
+		}
+	});
+}
 
 function isDefined(obj) {
 	if (typeof obj == 'undefined') {
