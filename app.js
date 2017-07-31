@@ -796,7 +796,7 @@ request({
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
 
-				txtmessage = "Hi " + user.first_name + '! I\'m honestbee bot, your all-in-one personal concierge and delivery app. 🐝  To continue, are you a consumer or a merchant?”';
+				txtmessage = "Hi " + user.first_name + '! I\'m honestbee bot, your all-in-one personal concierge and delivery app. 🐝  To continue, are you a consumer, a merchant, or a rider?”';
 				let replies = [
 		{
 			"content_type": "text",
@@ -1306,8 +1306,8 @@ function sendEmailInquiry(subject, content, name) {
 
 	var data = {
 	from: 'Inquiries <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
-	to: 'romedorado@gmail.com',
-	cc: 'ics133ust@gmail.com',
+	to: 'migz.delgallego@honestbee.com',
+	cc: 'marlo.lucio@honestbee.com',
 	subject: `Inquiry from ${name}`,
 	text: content
 	};
