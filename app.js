@@ -985,6 +985,10 @@ function receivedPostback(event) {
 		//sendTextMessage(senderID, "responseText");//gawing message try mo
 		 break;
 
+		 case 'back_tomost':
+		 sendToApiAi(senderID, "Most Asked");
+		 break;
+
 		 case "back_tolearnmore":
 		 sendToApiAi(senderID, "Back to Learn More");
 		 //sendToApiAi(senderID, "back_tolearnmore");
