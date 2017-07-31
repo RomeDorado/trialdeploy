@@ -89,7 +89,7 @@ app.get('/handlemess/', function (req, res) {
  *
  */
 
-app.post('/', function (req, res) {
+app.post('/webhook/', function (req, res) {
 	var data = req.body;
 	console.log(JSON.stringify(data));
 
