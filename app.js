@@ -193,14 +193,32 @@ function handleEcho(messageId, appId, metadata) {
 	console.log("Received echo for message %s and app %d with metadata %s", messageId, appId, metadata);
 }
 
+var clientName = "";
+
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
+	request({
+		uri: 'https://graph.facebook.com/v2.7/' + sender,
+		qs: {
+			access_token: config.FB_PAGE_TOKEN
+		}
+
+	}, function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+
+			var user = JSON.parse(body);
+
+			clientName = user.first_name;
+
+		}
+	});
+
 	switch (action) {
 		case "send-message":
 		let contex = contexts.map(function(obj) {
 				let contextObjects = {};
 				if(obj.name === "sendmsg"){
 					let emailContents = obj.parameters['userMessage'];
-					sendEmailInquiry("New Inquiry", emailContents);
+					sendEmailInquiry("New Inquiry", emailContents, clientName);
 				}
 			return contextObjects;
 		});
@@ -212,7 +230,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				let contextObject = {};
 				if(obj.name === "feedback"){
 					let emailContent = obj.parameters['feedbackMessage'];
-					sendEmail("New Feedback", emailContent);
+					sendEmail("New Feedback", emailContent, clientName);
 				}
 			return contextObject;
 		});
@@ -1110,6 +1128,14 @@ function receivedPostback(event) {
 		 sendToApiAi(senderID, "Most Asked");
 		 break;
 
+		case "customsg":
+		sendToApiAi(senderID, "customsg");
+		break;
+		
+		case "sendmsgs":
+		sendToApiAi(senderID, "sendmsgs");
+		break;
+
 
 		default:
 			//unindentified payload
@@ -1244,7 +1270,7 @@ function verifyRequestSignature(req, res, buf) {
 	}
 }
 
-function sendEmail(subject, content) {
+function sendEmail(subject, content, name) {
 
 	var api_key = 'key-2cc6875066bce7da401337300237471d';
 	var domain = 'sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org';
@@ -1253,7 +1279,7 @@ function sendEmail(subject, content) {
 	var data = {
 	from: 'Feedback <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
 	to: 'romedorado@gmail.com',
-	subject: 'Feedback from users',
+	subject: `Feedback from ${name}`,
 	text: content
 	};
 
@@ -1265,7 +1291,7 @@ function sendEmail(subject, content) {
 	});
 }
 
-function sendEmailInquiry(subject, content) {
+function sendEmailInquiry(subject, content, name) {
 
 	var api_key = 'key-2cc6875066bce7da401337300237471d';
 	var domain = 'sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org';
@@ -1274,7 +1300,7 @@ function sendEmailInquiry(subject, content) {
 	var data = {
 	from: 'Feedback <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
 	to: 'romedorado@gmail.com',
-	subject: 'Inquiry from users',
+	subject: `Inquiry from ${name}`,
 	text: content
 	};
 
