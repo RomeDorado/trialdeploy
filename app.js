@@ -177,7 +177,7 @@ function receivedMessage(event) {
 
 function handleMessageAttachments(messageAttachments, senderID){
 	//for now just reply
-	//sendTextMessage(senderID, "Attachment received. Thank you.");
+	sendTextMessage(senderID, "Attachment received. Thank you.");
 }
 
 function handleQuickReply(senderID, quickReply, messageId) {
@@ -193,46 +193,32 @@ function handleEcho(messageId, appId, metadata) {
 	console.log("Received echo for message %s and app %d with metadata %s", messageId, appId, metadata);
 }
 
-var clientName = "";
-
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
-		request({
-		uri: 'https://graph.facebook.com/v2.7/' + sender,
-		qs: {
-			access_token: config.FB_PAGE_TOKEN
-		}
-
-	}, function (error, response, body) {
-		if (!error && response.statusCode == 200) {
-
-			var user = JSON.parse(body);
-			clientName = user.first_name;
-
-		}
-	});
-	
 	switch (action) {
-		case "send-message":
-		let contex = contexts.map(function(obj) {
-				let contextObject1 = {};
-				if(obj.name === "sendmsg"){
-					let emailContents = obj.parameters['userMessage'];
-					sendEmail("Inquiry", emailContents, clientName);
-				}
-			return contextObject1;
-		});
-		 	sendTextMessage(sender, responseText);
 
-			console.log(responseText);
-
-		 break;		
-		
 		 case "feedback-action":
+		 /*
+		 	if(isDefined(contexts[0]) && contexts[0].name == "feedback" && contexts[0].parameters
+			 || isDefined(contexts[1]) && contexts[1].name == "feedback" && contexts[1].parameters
+			 || isDefined(contexts[2]) && contexts[2].name == "feedback" && contexts[2].parameters){
+		 			let feedback_Message = (isDefined(contexts[2].parameters['feedbackMessage']) &&
+		 			contexts[2].parameters['feedbackMessage'] != "") ? contexts[2].parameters['feedbackMessage'] : "";
+
+		 			if(feedback_Message != ""){
+		 				let emailContent = "Here is a feedback from one of your users: " + feedback_Message;
+
+		 				sendEmail("New Feedback", emailContent);
+						 console.log("This is working!!!!!");
+		 			}else{
+						console.log("This is NOT working!!!!!");
+					 }
+		 	}
+*/
 			 let conte = contexts.map(function(obj) {
 				let contextObject = {};
 				if(obj.name === "feedback"){
 					let emailContent = obj.parameters['feedbackMessage'];
-					sendEmail("New Feedback", emailContent, clientName);
+					sendEmail("New Feedback", emailContent);
 				}
 			return contextObject;
 		});
@@ -1264,17 +1250,16 @@ function verifyRequestSignature(req, res, buf) {
 	}
 }
 
-function sendEmail(subject, content, name) {
+function sendEmail(subject, content) {
 
 	var api_key = 'key-2cc6875066bce7da401337300237471d';
 	var domain = 'sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org';
 	var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 	var data = {
-	from: 'honestbee chatbot <do-not-reply-honestbee@bot.com>',
+	from: 'Feedback <postmaster@sandboxb18d41951b2a4b58a7f2bcdc7a7048f8.mailgun.org>',
 	to: 'romedorado@gmail.com',
-	cc: 'ics133ust@gmail.com',
-	subject: `Feedback from ${name}`,
+	subject: 'Feedback from users',
 	text: content
 	};
 
